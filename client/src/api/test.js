@@ -1,6 +1,6 @@
 const getTest = async () => {
 	try {
-		const res = await fetch("http://localhost:8080/test", {
+		const res = await fetch(`${import.meta.env.VITE_APP_URL}`, {
 			method: "GET",
 			headers: {
 				Accept: "application/json",
