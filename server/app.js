@@ -28,13 +28,13 @@ app.use(cors({ origin: true, credentials: true }));
 
 // routes
 import testRoutes from "./routes/test.js";
-import userRoute from "./routes/userRoute.js"
-
-// for testing purposes
 app.use("/", testRoutes);
 
-// use the userRoute for routes starting with '/users'
+import userRoute from "./routes/userRoute.js"
 app.use("/users", userRoute);
+
+import locationRoute from "./routes/locationRoute.js"
+app.use("/locations", locationRoute);
 
 
 

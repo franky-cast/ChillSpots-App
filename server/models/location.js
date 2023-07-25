@@ -1,11 +1,11 @@
 import mongoose from "mongoose"
 
 const locationSchema = new mongoose.Schema({
-    pictures: [{
-        url: { type: String, required: true }
-    }],
+    pictures: [
+        { type: String, required: true }
+    ],
     name: { type: String, required: true },
-    length: { tpye: Number, required: true },
+    length: { type: Number, required: true },
     difficulty: { type: String, required: true, enum: ['Easy', 'Moderate', 'Difficult'] },
     latitude: { type: Number, required: true },
     longitude: { type: Number, required: true },
