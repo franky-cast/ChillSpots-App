@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv"
+dotenv.config()
 
 
 // app
@@ -11,12 +12,8 @@ const app = express();
 
 
 // db
-dotenv.config()
-mongoose
-	.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
+const uri = process.env.MONGO_URI
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true,})
 	.then(() => console.log("DB CONNECTED"))
 	.catch((err) => console.log("DB CONNECTION ERROR", err));
 
