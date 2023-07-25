@@ -25,9 +25,17 @@ app.use(urlencoded({ extended: false }));
 app.use(cors({ origin: true, credentials: true }));
 
 
+
 // routes
 import testRoutes from "./routes/test.js";
+import userRoute from "./routes/userRoute.js"
+
+// for testing purposes
 app.use("/", testRoutes);
+
+// use the userRoute for routes starting with '/users'
+app.use("/users", userRoute);
+
 
 
 // port
