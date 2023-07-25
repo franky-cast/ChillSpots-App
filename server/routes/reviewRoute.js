@@ -2,49 +2,48 @@ import { Router } from "express"
 const router = Router();
 
 // import controller
-import locationController from "../controllers/locationController.js";
+import reviewController from "../controllers/reviewController.js";
 
 // import model
-import Location from "../models/location.js";
+import Review from "../models/review.js";
 
 // import middlewares
-
 
 
 // API ROUTES
 
 router.route('/add').post((req, res) => {
-    locationController.addLocation(req)
-        .then(() => res.json('Location added!'))
+    reviewController.addReview(req)
+        .then(() => res.json('Review added!'))
         .catch(err => res.status(400).json(`Error: ${err}`))
 })
 
 
 router.route('/').get((req, res) => {
-    Location.find()
-        .then(locations => res.json(locations))
+    Review.find()
+        .then(reviews => res.json(reviews))
         .catch(err => res.status(400).json(`Error: ${err}`))
 })
 
 
 router.route('/:id').get((req, res) => {
-    Location.findById(req.params.id)
-        .then(location => res.json(location))
+    Review.findById(req.params.id)
+        .then(review => res.json(review))
         .catch(err => res.status(400).json(`Error: ${err}`))
 })
 
 
 router.route('/:id/update').put((req, res) => {    
-    locationController.updateLocation(req)    
-      .then(() => res.json('Location updated successfully!'))
+    reviewController.updateReview(req)
+      .then(() => res.json('Review updated successfully!'))
       .catch(err => res.status(400).json(`Error updating user: ${err}`));
-});
+})
 
 
 router.route('/:id/delete').delete((req, res) => {    
-    locationController.deleteLocation(req.params.id)    
-      .then(() => res.json('Location deleted successfully!'))
+    reviewController.deleteReview(req.params.id)    
+      .then(() => res.json('Review deleted successfully!'))
       .catch(err => res.status(400).json(`Error updating user: ${err}`));
-});
+})
 
 export default router

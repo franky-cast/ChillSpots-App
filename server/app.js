@@ -36,6 +36,9 @@ app.use("/users", userRoute);
 import locationRoute from "./routes/locationRoute.js"
 app.use("/locations", locationRoute);
 
+import reviewRoute from "./routes/reviewRoute.js"
+app.use("/reviews", reviewRoute)
+
 
 
 // port
