@@ -2,16 +2,15 @@ import Review from "../models/review.js"
 
 // handler functions
 const addReview = (req) => {
-    const { locationId, userId, rating, comment, likes, timestamp, comments } = req.body
+    const { locationId, userId, rating, textContent, likes, timestamp } = req.body
 
     const newReview = new Review ({
         locationId,
         userId,
         rating,
-        comment,
+        textContent,
         likes,
-        timestamp,
-        comments
+        timestamp
     })
 
     return newReview.save()
