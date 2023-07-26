@@ -14,9 +14,7 @@ function Test () {
     }, [])
 
     return (
-        <div className='container'>
-            <p className='p'> { data } </p>
-        </div>
+        <p> { data } </p>
     )
 }
 

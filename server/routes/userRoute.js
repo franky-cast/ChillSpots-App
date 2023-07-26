@@ -16,14 +16,29 @@ const checkProfilePicture = (req, res, next) => {
     next()
 }
 
+// check if user already exists
+const checkIfUserExists = async (req, res, next) => {
+    try {
+      const user = await User.findOne({ username: req.body.username })
+  
+      if (user) {
+        return res.status(409).json('Username already taken.. Cannot create user')
+      }
+  
+      next()
+    } catch (err) {
+      return res.status(500).json(`Error: ${err}`)
+    }
+};
+
 
 // API ROUTES
 
 // register users
-router.route('/add').post(checkProfilePicture, (req, res) => {
+router.route('/add').post(checkIfUserExists, checkProfilePicture, (req, res) => {
     userController.registerUser(req)
-        .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json(`Error: ${err}`))
+      .then(() => res.json('User added!'))
+      .catch(err => res.status(400).json(`Error: ${err}`))
 })
 
 
@@ -44,7 +59,7 @@ router.route('/:id').get((req, res) => {
 
 
 // updating user info
-router.route('/:id/update').put((req, res) => {    
+router.route('/update/:id').put((req, res) => {    
     userController.updateUser(req)    
       .then(() => res.json('User updated successfully!'))
       .catch(err => res.status(400).json(`Error updating user: ${err}`));
@@ -52,7 +67,7 @@ router.route('/:id/update').put((req, res) => {
 
 
 // delete user info
-router.route('/:id/delete').delete((req, res) => {    
+router.route('/delete/:id').delete((req, res) => {    
     userController.deleteUser(req.params.id)    
       .then(() => res.json('User deleted successfully!'))
       .catch(err => res.status(400).json(`Error updating user: ${err}`));

@@ -1,0 +1,17 @@
+.hero {
+    background-image: url("../../public/assets/sunsetCliffs.jpeg");
+    background-size: cover;
+    height: 250px;
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+}
+
+.greeting {
+    color: #fff;
+    font-size: 32px;
+    margin: 0;
+    padding-bottom: 0.5em;
+}
