@@ -1,8 +1,20 @@
-import { error } from 'console';
 import User from '../models/user.js';
-import crypto from "crypto"
+import crypto from 'crypto'
 
 // handler functions
+const signIn = (req) => {
+    // creating sessionID for currently logged in user
+    const randomToken = crypto.randomBytes(Math.ceil(32 / 2)).toString('hex').slice(0, 32)
+    const sessionId = {
+        userId: req.userId,
+        username: req.body.username,
+        name: req.name,
+        token: randomToken
+    }
+    return sessionId
+}
+
+
 const registerUser = (req) => {
     const { username, email, password, name, profilePicture, createdAt } = req.body
 
@@ -14,13 +26,6 @@ const registerUser = (req) => {
         profilePicture,
         createdAt
     })
-
-    // creating sessionID for currently logged in user
-    const randomToken = crypto.randomBytes(Math.ceil(32 / 2)).toString('hex').slice(0, 32)
-    const sessionId = {
-        name: username,
-        token: randomToken
-    }
 
     return newUser.save()
 };
@@ -40,6 +45,7 @@ const deleteUser = (userId) => {
 
 
 export default {
+    signIn,
     updateUser,
     deleteUser,
     registerUser

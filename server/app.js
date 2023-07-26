@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv"
 dotenv.config()
+import cookieParser from 'cookie-parser'
 
 
 // app
@@ -23,7 +24,7 @@ app.use(morgan("dev"));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cors({ origin: true, credentials: true }));
-
+app.use(cookieParser())
 
 
 // routes
