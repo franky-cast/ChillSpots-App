@@ -22,7 +22,7 @@ const locationSchema = new mongoose.Schema({
     ],
     stats: {
         rating: { type: Number },
-        likes: { type: Number },
+        reviewCount: { type: Number },
         reviews: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Review' } ],
         tags: [{ type: String, enum: locationTags }]
     },
