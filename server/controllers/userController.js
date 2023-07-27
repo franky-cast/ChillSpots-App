@@ -1,10 +1,10 @@
 import User from '../models/user.js';
-import crypto from 'crypto'
+import cryptoRandomString from 'crypto-random-string'
 
 // handler functions
 const signIn = (req) => {
     // creating sessionID for currently logged in user
-    const randomToken = crypto.randomBytes(Math.ceil(32 / 2)).toString('hex').slice(0, 32)
+    const randomToken = cryptoRandomString({ length: 64})
     const sessionId = {
         userId: req.userId,
         username: req.body.username,
