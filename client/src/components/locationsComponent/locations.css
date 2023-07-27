@@ -1,4 +1,20 @@
 .container {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: 1em;
+    padding-top: 2em;
+}
+
+.card-flex{    
+    display: flex;
+    gap: 2em;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.heading {
+    font-size: 1.5rem;
+}
+
+.daygo {
+    text-decoration: underline;
 }

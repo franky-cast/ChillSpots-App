@@ -1,9 +1,29 @@
 import "./card.css"
-import star from "../../../public/assets/star.png"
+import star from "/assets/star.png"
+import sunsetCliffs from "/assets/sunsetCliffs.jpeg"
+import missionBay from "/assets/missionbay.webp"
+import laJollaCove from "/assets/lajollacove.webp"
+import balboaPark from "/assets/balboapark.jpeg"
+
 
 function Card (props) {
     const { name, pictures, stats, address, city, state, latitude, longtitude, approved, timestamp } = props.location
-    const coverImg = pictures[0]
+
+    let coverImg
+    switch (name) {
+        case ("Sunset Cliffs"):
+            coverImg = sunsetCliffs
+            break
+        case ("Mission Bay Park"):
+            coverImg = missionBay
+            break
+        case ("La Jolla Cove"):
+            coverImg = laJollaCove
+            break
+        case ("Balboa Park"):
+            coverImg = balboaPark
+            break
+    }
 
     return (
         <a className="card--a-tag" href="#">

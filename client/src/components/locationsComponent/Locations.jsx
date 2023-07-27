@@ -18,12 +18,12 @@ function Locations () {
         fetchLocationsData()
     }, [])
 
-    const data = locations.map(location => (location.approved && <Card key={location._id} location= {location}/>) )
+    const data = locations.map(location => (location.approved && <Card key={location._id} location={location}/>) )
 
     return (
         <div className='container'>
-            <p>Locations component</p>
-            <div> {data} </div>
+            <p className='heading'>Local Favorites in <strong className='daygo'>San Diego</strong> 🌴☀️</p>
+            <div className='card-flex'> {data} </div>
         </div>
     )
 }

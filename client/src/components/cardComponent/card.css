@@ -2,13 +2,13 @@
 .card--a-tag {
     text-decoration: none;
     color: black;
-    width: 150px;
+    /* width: 150px; */
 }
 
 .card {
-    margin-left: 1.75em;
+    /* margin-left: 1.75em; */
     margin-bottom: 3em;
-    width: 150px;
+    width: 220px;
 }
 
 .card:hover{
@@ -35,11 +35,4 @@
 
 .card--title{
     margin-top: 0;
-}
-
-.card-flex{
-    display: flex;
-    gap: 2em;
-    flex-wrap: nowrap;
-    overflow-x: auto;
 }

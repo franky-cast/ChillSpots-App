@@ -10,11 +10,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: flex-end;
+
+    padding-top: 8em;
 }
 
 .greeting {
     color: #fff;
     font-size: 32px;
     margin: 0;
-    padding-bottom: 0.5em;
+    padding-bottom: 2em;
 }
