@@ -1,8 +1,7 @@
 // components
 import Nav from "./components/navComponent/Nav.jsx"
 import Hero from "./components/heroComponent/Hero.jsx"
-import Test from "./components/testComponent/Test.jsx"
-import Location from "./components/locationComponent/Location.jsx"
+import Locations from "./components/locationsComponent/Locations.jsx"
 
 // app css
 import "./app.css"
@@ -12,9 +11,7 @@ function App() {
     <div className="app">
       <Nav />
       <Hero />
-      <div className="container">
-        <Location />
-      </div>
+      <Locations />
     </div>
   )
 }

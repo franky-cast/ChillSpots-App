@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
-import "./location.css"
+import "./card.css"
 import fetchLocations from "../../api/location"
 import star from "../../../public/assets/star.png"
 
 
-function Location () {
+function Card () {
     const [ locations, setLocations ] = useState([])
 
     useEffect(() => {
@@ -48,4 +48,4 @@ function Location () {
     )
 }
 
-export default Location
+export default Card
