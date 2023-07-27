@@ -15,7 +15,7 @@ function Hero () {
                 console.log(userData)
                 setUser(userData.name)
             } catch (err) {
-                console.error(err)
+                console.error(`Error fetching user data: ${err}`)
             }
         }
         fetchUserData ()

@@ -9,7 +9,8 @@ const locationSchema = new mongoose.Schema({
     difficulty: { type: String, required: true, enum: ['Easy', 'Moderate', 'Difficult'] },
     latitude: { type: Number, required: true },
     longitude: { type: Number, required: true },
-    approved: { type: Boolean, default: false } // Added approval status field
+    approved: { type: Boolean, default: false },
+    address: { type: String, required: true}
 })
 
 const Location = mongoose.model('Location', locationSchema)

@@ -12,10 +12,9 @@ function App() {
     <div className="app">
       <Nav />
       <Hero />
-      {/* <div className="container">
-        <Test />
+      <div className="container">
         <Location />
-      </div> */}
+      </div>
     </div>
   )
 }

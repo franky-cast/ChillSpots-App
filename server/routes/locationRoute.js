@@ -37,14 +37,14 @@ router.route('/:id').get((req, res) => {
 router.route('/:id/update').put((req, res) => {    
     locationController.updateLocation(req)    
       .then(() => res.json('Location updated successfully!'))
-      .catch(err => res.status(400).json(`Error updating user: ${err}`));
+      .catch(err => res.status(400).json(`Error updating location: ${err}`));
 });
 
 
-router.route('/:id/delete').delete((req, res) => {    
+router.route('/:id/delete').delete((req, res) => {
     locationController.deleteLocation(req.params.id)    
       .then(() => res.json('Location deleted successfully!'))
-      .catch(err => res.status(400).json(`Error updating user: ${err}`));
+      .catch(err => res.status(400).json(`Error deleting location: ${err}`));
 });
 
 export default router
