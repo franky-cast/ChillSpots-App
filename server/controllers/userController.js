@@ -16,7 +16,7 @@ const signIn = (req) => {
 
 
 const registerUser = (req) => {
-    const { username, email, password, name, profilePicture, createdAt } = req.body
+    const { username, email, password, name, profilePicture, timestamp } = req.body
 
     const newUser = new User ({
         username,
@@ -24,7 +24,7 @@ const registerUser = (req) => {
         password,
         name,
         profilePicture,
-        createdAt
+        timestamp
     })
 
     return newUser.save()

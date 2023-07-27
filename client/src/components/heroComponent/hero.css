@@ -1,6 +1,8 @@
 .hero {
     background-image: url("../../public/assets/sunsetCliffs.jpeg");
     background-size: cover;
+    background-position: center;
+
     height: 250px;
 
     text-align: center;

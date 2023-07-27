@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
@@ -6,9 +6,9 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   profilePicture: { type: String }, // URL of the user's profile picture
-  createdAt: { type: Date, default: Date.now },
-});
+  timestamp: { type: Date, default: Date.now }
+})
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
 
 export default User

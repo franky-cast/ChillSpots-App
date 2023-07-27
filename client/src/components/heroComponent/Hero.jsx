@@ -3,23 +3,23 @@ import { useState, useEffect } from "react"
 import signIn from "../../api/signIn"
 
 function Hero () {
-    const [name, setUser] = useState("human")
+    // const [name, setUser] = useState("human")
 
     // testing the sign in feature
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const username = "michael_jackson"
-            const password = "securePassword123"
-            try {
-                const userData = await signIn(username, password)
-                console.log(userData)
-                setUser(userData.name)
-            } catch (err) {
-                console.error(`Error fetching user data: ${err}`)
-            }
-        }
-        fetchUserData ()
-    }, [])
+    // useEffect(() => {
+    //     const fetchUserData = async () => {
+    //         const username = "michael_jackson"
+    //         const password = "securePassword123"
+    //         try {
+    //             const userData = await signIn(username, password)
+    //             console.log(userData)
+    //             setUser(userData.name)
+    //         } catch (err) {
+    //             console.error(`Error fetching user data: ${err}`)
+    //         }
+    //     }
+    //     fetchUserData ()
+    // }, [])
     
     
 
@@ -36,7 +36,7 @@ function Hero () {
 
     return (
         <div className="hero">
-            <p className="greeting">Good {timeOfDay}, {name}</p>
+            <p className="greeting">Good {timeOfDay}</p>
         </div>
     )
 }

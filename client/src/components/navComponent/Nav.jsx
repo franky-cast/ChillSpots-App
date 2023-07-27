@@ -3,7 +3,7 @@ import "./nav.css"
 function Nav () {
     return (
         <header className="nav">
-            <a href="">Link</a>
+            <a href="">SD</a>
         </header>
     )
 }

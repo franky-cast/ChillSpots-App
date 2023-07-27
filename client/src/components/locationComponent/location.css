@@ -1,0 +1,45 @@
+/* card */
+.card--a-tag {
+    text-decoration: none;
+    color: black;
+    width: 150px;
+}
+
+.card {
+    margin-left: 1.75em;
+    margin-bottom: 3em;
+    width: 150px;
+}
+
+.card:hover{
+    opacity: .9;
+}
+
+.card--image{
+    border-radius: 20px;
+    width: 100%;
+}
+
+.card--info {
+    display: flex;
+    gap: 0.25em;
+    margin-bottom: 0;
+    padding-top: 0;    
+}
+
+.star-png{
+    width: 20px;
+    align-self: center;
+    height: 20px;
+}
+
+.card--title{
+    margin-top: 0;
+}
+
+.card-flex{
+    display: flex;
+    gap: 2em;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
