@@ -5,13 +5,13 @@ import cryptoRandomString from 'crypto-random-string'
 const signIn = (req) => {
     // creating sessionID for currently logged in user
     const randomToken = cryptoRandomString({ length: 64})
-    const sessionId = {
+    const session = {
         userId: req.userId,
         username: req.body.username,
         name: req.name,
         token: randomToken
     }
-    return sessionId
+    return session
 }
 
 
