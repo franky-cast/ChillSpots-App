@@ -8,6 +8,7 @@ import reviewController from "../controllers/reviewController.js";
 import Review from "../models/review.js";
 
 // import middlewares
+import reviewMiddleware from "../middleware/reviewMiddleware.js";
 
 
 // API ROUTES

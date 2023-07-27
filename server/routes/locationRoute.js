@@ -8,7 +8,7 @@ import locationController from "../controllers/locationController.js";
 import Location from "../models/location.js";
 
 // import middlewares
-
+import locationMiddleware from "../middleware/locationMiddleware.js";
 
 
 // API ROUTES

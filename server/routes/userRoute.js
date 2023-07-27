@@ -8,51 +8,8 @@ import userController from "../controllers/userController.js";
 import User from "../models/user.js";
 
 // import middlewares
-const validateSignIn = async (req, res, next) => {
-    // checks if user is already registered
-    try {
-        const user = await User.findOne({ username: req.body.username })
-        if (user && user.password === req.body.password) {
-            // binds the userId to the req body so that it make be used in corresponding eventHandler
-            req.userId = user.id
-            req.name = user.name
-            
-            // checks if user is already signed in
-            if (req.cookies.sessionId) {
-                return res.status(409).json( {error: 'User is already signed in'})
-            }
-            next()
-        } else {
-            return res.status(404).json( {error: 'Incorrect username or password'} )
-        }
-    } catch (err) {
-        return res.status(400).json(`Internal server error: ${err}`)
-    }
-}
-
-
-// makes sure user does not already exist upon user registration
-const validateRegistration = async (req, res, next) => {
-    try {
-      const user = await User.findOne({ username: req.body.username })
-      if (!user){
-        next()
-      } else {
-        return res.status(409).json( {error: 'Username already exists'} )
-      }
-    } catch (err) {
-        return res.status(500).json(`Internal server error: ${err}`)
-    }
-}
-
-
-// check if profile picture added
-const checkProfilePicture = (req, res, next) => {
-    if (!req.body.profilePicture) {
-        req.body.profilePicture = "default_profile_picture.jpg"
-    }
-    next()
-}
+import userMiddleware from "../middleware/userMiddleware.js";
+const { validateSignIn, validateRegistration, checkProfilePicture } = userMiddleware
 
 
 // API ROUTES
