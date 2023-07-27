@@ -1,3 +1,5 @@
+import User from "../models/user.js"
+
 // validates sign in of user
 const validateSignIn = async (req, res, next) => {
     // checks if user is already registered

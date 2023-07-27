@@ -29,7 +29,7 @@ app.use(cookieParser())
 
 // routes
 import testRoutes from "./routes/test.js";
-app.use("/", testRoutes);
+app.use("/", testRoutes)
 
 import userRoute from "./routes/userRoute.js"
 app.use("/users", userRoute);

@@ -14,7 +14,7 @@ const { validateSignIn, validateRegistration, checkProfilePicture } = userMiddle
 
 // API ROUTES
 // sign in user
-router.route('/signin').get(validateSignIn, (req, res) => {
+router.route('/signin').post(validateSignIn, (req, res) => {
     const session = userController.signIn(req)
     const sessionToken = session.token
     res.cookie('sessionId', session.token, {
@@ -24,7 +24,7 @@ router.route('/signin').get(validateSignIn, (req, res) => {
     res.json({
         message: 'Succesful sign in',
         name: session.name
-    })
+    })        
 })
 
 
