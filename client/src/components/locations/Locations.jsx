@@ -21,7 +21,7 @@ function Locations () {
     const data = locations.map(location => (location.approved && <Card key={location._id} location={location}/>) )
 
     return (
-        <div className='container'>
+        <div className='locations'>
             <p className='heading'>Local Favorites in <strong className='daygo'>San Diego</strong> 🌴☀️</p>
             <div className='card-flex'> {data} </div>
         </div>
