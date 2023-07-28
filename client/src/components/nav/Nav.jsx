@@ -3,8 +3,7 @@ import logo from "/assets/logos/footerlogo.png"
 import hamburgerMenu from "/assets/utilities/hamburger.jpeg"
 
 function Nav () {
-    const isMobile = true
-
+    
     return (
         <header>
             <nav className="nav">

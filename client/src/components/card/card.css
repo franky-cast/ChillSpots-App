@@ -2,13 +2,11 @@
 .card--a-tag {
     text-decoration: none;
     color: black;
-    /* width: 150px; */
 }
 
 .card {
     padding: 0 1em 0 1em;
-    /* margin-bottom: 3em; */
-    width: 250px;
+    width: 330px;
 }
 
 .card:hover{
