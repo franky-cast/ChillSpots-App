@@ -1,9 +1,9 @@
 import "./card.css"
-import star from "/assets/star.png"
-import sunsetCliffs from "/assets/sunsetCliffs.jpeg"
-import missionBay from "/assets/missionbay.webp"
-import laJollaCove from "/assets/lajollacove.webp"
-import balboaPark from "/assets/balboapark.jpeg"
+import star from "/assets/utilities/star.png"
+import sunsetCliffs from "/assets/locations/sunsetCliffs.jpeg"
+import missionBay from "/assets/locations/missionbay.webp"
+import laJollaCove from "/assets/locations/lajollacove.webp"
+import balboaPark from "/assets/locations/balboapark.jpeg"
 
 
 function Card (props) {

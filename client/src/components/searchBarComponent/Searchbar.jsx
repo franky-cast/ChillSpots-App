@@ -1,5 +1,5 @@
 import './searchbar.css'
-import svgArrow from "../../../public/assets/icon-arrow.svg"
+import svgArrow from "/assets/utilities/icon-arrow.svg"
 
 function Searchbar () {
     return (

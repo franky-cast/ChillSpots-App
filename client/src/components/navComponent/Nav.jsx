@@ -1,6 +1,6 @@
 import "./nav.css"
-import logo from "/assets/logo.jpeg"
-import hamburgerMenu from "/assets/hamburger.jpeg"
+import logo from "/assets/logos/logo.jpeg"
+import hamburgerMenu from "/assets/utilities/hamburger.jpeg"
 
 function Nav () {
     const isMobile = true

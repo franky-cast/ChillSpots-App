@@ -1,5 +1,5 @@
 .hero {
-    background-image: url("../../public/assets/sunsetCliffs.jpeg");
+    background-image: url("/assets/locations/sunsetCliffs.jpeg");
     background-size: cover;
     background-position: center;
 
