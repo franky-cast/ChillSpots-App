@@ -23,7 +23,8 @@ ChillSpots is an app that helps you discover and explore the best spots to relax
 - MongoDB
 
 
-## How to run on local machine (Must have access credentials to mognoDB being used - authorized by owners*)
+## How to run on local machine
+###Must have access credentials to mognoDB being used - authorized by owners*
 - Clone repo
 - Install npm
 - Install node
@@ -32,4 +33,5 @@ ChillSpots is an app that helps you discover and explore the best spots to relax
 
 
 
-### App is still under development
+
+#### App is still under development
