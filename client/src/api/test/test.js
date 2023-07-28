@@ -1,14 +1,9 @@
+import axios from 'axios/dist/browser/axios.cjs'
+
 const getTest = async () => {
-	try {
-		const res = await fetch(`${import.meta.env.VITE_APP_URL}/test`, {
-			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-			},
-		})
-		return await res.json();
-	} catch (err) {}
-};
+	axios.get(`${import.meta.env.VITE_APP_URL}/test`)
+	.then((res) => console.log(res))
+	.catch((err) => console.log(err))
+}
 
 export default getTest
