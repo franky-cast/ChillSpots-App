@@ -24,16 +24,19 @@ function Hero () {
     
     
 
-    const date = new Date()
-    const time = date.getHours()
-    let timeOfDay
-    if (time >= 0 && time < 12) {
-        timeOfDay = "morning"
-    } else if (time >= 12 && time < 7) {
-        timeOfDay = "afternoon"        
-    } else {
-        timeOfDay = "evening"
-    }
+    const [timeOfDay, setTimeOfDay] = useState()
+    let time
+    useEffect (() => {
+        time = new Date().getHours()
+        if (time >= 0 && time < 12) {
+            setTimeOfDay("morning")
+        } else if (time >= 12 && time < 19) {
+            setTimeOfDay("afternoon")        
+        } else {
+            setTimeOfDay("evening")        
+        }
+    },[time])
+    
 
     return (
         <div className="hero">
