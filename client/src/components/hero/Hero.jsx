@@ -1,6 +1,6 @@
 import "./hero.css"
 import { useState, useEffect } from "react"
-import signIn from "../../api/signIn"
+import signIn from "../../api/users/signIn"
 import Searchbar from "../searchbar/Searchbar"
 
 function Hero () {

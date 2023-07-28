@@ -4,17 +4,23 @@ import Hero from "./components/hero/Hero.jsx"
 import Locations from "./components/locations/Locations.jsx"
 import Footer from "./components/footer/Footer.jsx"
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 // app css
 import "./app.css"
 
 function App() {
   return (
-    <div className="app">
+    <Router className="app">
       <Nav />
-      <Hero />
-      <Locations />
+      <Routes>
+        <Route exact path="/home" Component={Hero}></Route>
+      </Routes>
+      <Routes>
+        <Route exact path="/home" Component={Locations}></Route>
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   )
 }
 
