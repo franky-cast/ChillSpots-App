@@ -6,9 +6,9 @@
 }
 
 .card {
-    /* margin-left: 1.75em; */
-    margin-bottom: 3em;
-    width: 220px;
+    padding: 0 1em 0 1em;
+    /* margin-bottom: 3em; */
+    width: 250px;
 }
 
 .card:hover{
