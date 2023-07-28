@@ -1,7 +1,7 @@
 import "./hero.css"
 import { useState, useEffect } from "react"
 import signIn from "../../api/signIn"
-import Searchbar from "../searchBarComponent/Searchbar"
+import Searchbar from "../searchbar/Searchbar"
 
 function Hero () {
     // const [name, setUser] = useState("human")
