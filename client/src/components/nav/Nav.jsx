@@ -1,5 +1,5 @@
 import "./nav.css"
-import logo from "/assets/logos/logo.jpeg"
+import logo from "/assets/logos/footerlogo.png"
 import hamburgerMenu from "/assets/utilities/hamburger.jpeg"
 
 function Nav () {
