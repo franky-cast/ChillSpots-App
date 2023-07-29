@@ -1,7 +1,5 @@
 let getTest = async (req, res) => {
-	res.status(200).json({
-		message: "Test API is REALLY working!",
-	});
-};
+	res.status(200).json("Test API is REALLY working!")
+}
 
 export default getTest

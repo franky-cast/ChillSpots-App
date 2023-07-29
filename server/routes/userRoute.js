@@ -9,30 +9,46 @@ import User from "../models/user.js";
 
 // import middlewares
 import userMiddleware from "../middleware/userMiddleware.js";
-const { validateSignIn, validateRegistration, checkProfilePicture } = userMiddleware
+const { validateSignIn, validateRegistration, checkProfilePicture, validateSignOut } = userMiddleware
 
 
 // API ROUTES
 // sign in user
 router.route('/signin').post(validateSignIn, (req, res) => {
-    const session = userController.signIn(req)
-    const sessionToken = session.token
-    res.cookie('sessionId', session.token, {
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000
-    })
-    res.json({
-        message: 'Succesful sign in',
-        name: session.name
-    })        
+    try{
+        const session = userController.signIn(req)
+        const sessionToken = session.token
+        res.cookie('sessionId', session.token, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000
+        })
+        res.json({
+            message: 'Succesful sign in',
+            name: session.username
+        }) 
+    } catch (err) {
+        res.json({ error: `Internal server error --> '/users/signin' : ${err}` })
+    }
+           
+})
+
+
+// sign out user
+router.route('/signout').get(validateSignOut, (req, res) => {
+    try {
+      res.clearCookie('sessionId')
+      res.json({ message: 'Successful sign out' })
+    } catch (err) {
+      res.json({ error: `Internal server error --> '/users/signout' : ${err}` })
+    }
 })
 
 
 // register users
 router.route('/add').post(validateRegistration, checkProfilePicture, (req, res) => {
     userController.registerUser(req)
-      .then(() => res.json('User added!'))
-      .catch(err => res.status(400).json(`Error: ${err}`))
+      .then(() => res.json({ message: 'User added!' }))
+      .catch(err => res.json({ error: `Internal server error --> '/users/add' : ${err}` }))
 })
 
 
@@ -40,7 +56,7 @@ router.route('/add').post(validateRegistration, checkProfilePicture, (req, res) 
 router.route('/').get((req, res) => {
     User.find()
         .then(users => res.json(users))
-        .catch(err => res.status(400).json(`Error: ${err}`))
+        .catch(err => res.json({ error: `Internal servor error --> '/users/' : ${err}` }))
 })
 
 
@@ -48,23 +64,23 @@ router.route('/').get((req, res) => {
 router.route('/:id').get((req, res) => {
     User.findById(req.params.id)
         .then(user => res.json(user))
-        .catch(err => res.status(400).json(`Error: ${err}`))
+        .catch(err => res.json({ error: `Internal server error --> '/users/:id' : ${err} \n incorrect id or incorrect route path` }))
 })
 
 
 // updating user info
 router.route('/update/:id').put((req, res) => {    
     userController.updateUser(req)    
-      .then(() => res.json('User updated successfully!'))
-      .catch(err => res.status(400).json(`Error updating user: ${err}`));
+      .then(() => res.json({ message: 'User updated successfully!' }))
+      .catch(err => res.json({ error: `Internal server error --> '/users/update/:id' : ${err}` }));
 });
 
 
 // delete user info
 router.route('/delete/:id').delete((req, res) => {    
     userController.deleteUser(req.params.id)    
-      .then(() => res.json('User deleted successfully!'))
-      .catch(err => res.status(400).json(`Error updating user: ${err}`));
+      .then(() => res.json({ message: 'User deleted successfully!' }))
+      .catch(err => res.json({ error: `Internal server error --> '/users/delete/:id' : ${err}` }));
 });
 
 export default router

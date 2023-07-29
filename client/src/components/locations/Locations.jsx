@@ -1,6 +1,6 @@
 import './locations.css'
 import Card from '../card/Card'
-import fetchLocations from "../../api/locations/location"
+import fetchLocations from "../../api/locations/location.js"
 import { useState, useEffect } from "react"
 
 function Locations () {

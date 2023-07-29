@@ -1,29 +1,37 @@
 import "./hero.css"
 import { useState, useEffect } from "react"
 import signIn from "../../api/users/signIn"
+import signOut from "../../api/users/signOut"
 import Searchbar from "../searchbar/Searchbar"
 
+
 function Hero () {
-    // const [name, setUser] = useState("human")
+    const [name, setUser] = useState("default")
 
     // testing the sign in feature
     // useEffect(() => {
-    //     const fetchUserData = async () => {
+    //     const signInHandler = async () => {
     //         const username = "michael_jackson"
     //         const password = "securePassword123"
-    //         try {
-    //             const userData = await signIn(username, password)
-    //             console.log(userData)
-    //             setUser(userData.name)
-    //         } catch (err) {
-    //             console.error(`Error fetching user data: ${err}`)
-    //         }
+    //         signIn(username, password)
+    //             .then((userData) =>setUser(userData.name))
+    //             .catch((err) => console.error(`Error fetching user data: ${err}`))
     //     }
-    //     fetchUserData ()
+    //     signInHandler()
+    // }, [])
+
+
+    // testing the sign out feature
+    // useEffect(() => {
+    //     const signOutHandler = async () => {
+    //         signOut()
+    //             .then((res) => console.log(res))
+    //             .catch((err) => console.error(`Sign out error: ${err}`))
+    //     }
+    //     signOutHandler()
     // }, [])
     
     
-
     const [timeOfDay, setTimeOfDay] = useState()
     let time
     useEffect (() => {
@@ -40,9 +48,10 @@ function Hero () {
 
     return (
         <div className="hero">
-            <p className="greeting">Good {timeOfDay}</p>
+            <p className="greeting">Good {timeOfDay}, {name}</p>
             <Searchbar />
         </div>
+
     )
 }
 

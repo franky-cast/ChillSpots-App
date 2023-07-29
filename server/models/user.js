@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   name: { type: String, required: true },
-  profilePicture: { type: String }, // URL of the user's profile picture
+  profilePicture: { type: String },
   timestamp: { type: Date, default: Date.now }
 })
 

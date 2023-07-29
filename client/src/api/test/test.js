@@ -1,6 +1,6 @@
-import axios from 'axios/dist/browser/axios.cjs'
+import axios from 'axios'
 
-const getTest = async () => {
+const getTest = () => {
 	axios.get(`${import.meta.env.VITE_APP_URL}/test`)
 	.then((res) => console.log(res))
 	.catch((err) => console.log(err))

@@ -6,6 +6,8 @@ import Footer from "./components/footer/Footer.jsx"
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import axios from "axios"
+
 // app css
 import "./app.css"
 

@@ -1,20 +1,13 @@
+import axios from 'axios'
+
 const signIn = async (usernameEntered, passwordEntered) => {
-	try {
-		const res = await fetch(`${import.meta.env.VITE_APP_URL}/users/signin`, {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				username: usernameEntered,
-				password: passwordEntered
-			})
-		})
-		return await res.json()
-	} catch (err) {
-		res.json(`Internal server error: ${err}`)
-	}
+	const res = await axios.post(`${import.meta.env.VITE_APP_URL}/users/signin`, {
+		username: usernameEntered,
+		password: passwordEntered
+	})
+	.then((res) => res)
+	.catch((err) => console.error(`Internal server error: $(err)`))
+	return res.data
 }
 
 export default signIn
