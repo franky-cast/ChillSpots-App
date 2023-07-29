@@ -24,14 +24,6 @@ const validateSignIn = async (req, res, next) => {
 }
 
 
-const validateSignOut = (req, res, next) => {
-    if (!req.cookies["sessionId"]) {
-        return (res.json({ error: "No duplicate sign outs. \n req.cookies['sessionId'] does not exist... \n User is not signed in."}))
-    }
-    next ()
-}
-
-
 // makes sure user does not already exist upon user registration
 const validateRegistration = async (req, res, next) => {
     try {
@@ -57,7 +49,6 @@ const checkProfilePicture = (req, next) => {
 
 export default {
     validateSignIn,
-    validateSignOut,
     validateRegistration,
     checkProfilePicture
 }

@@ -6,31 +6,51 @@ import Searchbar from "../searchbar/Searchbar"
 
 
 function Hero () {
-    const [name, setUser] = useState("default")
+    const [name, setName] = useState("default")
+
+    // keeps throwing error --> "req.cookies['sessionId'] does not exist... \n User is not signed in."
+    // even tho i am runing signInHandler() before running signOutHandler()
+    // don't have this problem when testing with insomnia
+    // --------------------------------------------------------
 
     // testing the sign in feature
     // useEffect(() => {
-    //     const signInHandler = async () => {
-    //         const username = "michael_jackson"
-    //         const password = "securePassword123"
-    //         signIn(username, password)
-    //             .then((userData) =>setUser(userData.name))
-    //             .catch((err) => console.error(`Error fetching user data: ${err}`))
+    //     async function signInHandler () {
+    //         try {
+    //             const username = "michael_jackson"
+    //             const password = "securePassword123"
+
+    //            const res = await signIn(username, password)
+
+    //             setName(res.name)
+
+    //         } catch (err) {
+    //             console.error(`Error fetching user data: ${err}`)
+    //         }
     //     }
     //     signInHandler()
     // }, [])
 
 
-    // testing the sign out feature
+    // // testing the sign out feature
     // useEffect(() => {
-    //     const signOutHandler = async () => {
-    //         signOut()
-    //             .then((res) => console.log(res))
-    //             .catch((err) => console.error(`Sign out error: ${err}`))
+    //     async function signOutHandler () {
+    //         try {
+    //             const res = await signOut()
+    //             if (res.data.message) {
+    //                 console.log("set name to skank")
+    //                 setName("skank")
+    //             }
+    //             console.log(res.data)
+    //         } catch (err) {
+    //             console.error(`Sign out error: ${err}`)
+    //         }
     //     }
     //     signOutHandler()
     // }, [])
     
+
+    // --------------------------------------------------------
     
     const [timeOfDay, setTimeOfDay] = useState()
     let time

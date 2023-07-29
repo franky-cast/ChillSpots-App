@@ -34,7 +34,20 @@ router.route('/signin').post(validateSignIn, (req, res) => {
 
 
 // sign out user
-router.route('/signout').get(validateSignOut, (req, res) => {
+router.route('/signout').get((req, res) => {
+    const sessionIdCookie = req.cookies.sessionId
+    
+    // -------------------------------------------------------------------------------------------------
+    // keeps throwing error: "req.cookies['sessionId'] does not exist... \n User is not signed in."
+    // see Hero.jsx
+
+    // everything works when i test the routes with insomnia
+    // -------------------------------------------------------------------------------------------------
+
+    if (!sessionIdCookie || typeof sessionIdCookie !== 'string') {        
+        return (res.json({ error: "req.cookies['sessionId'] does not exist... \n User is not signed in." }))
+    }
+
     try {
       res.clearCookie('sessionId')
       res.json({ message: 'Successful sign out' })
