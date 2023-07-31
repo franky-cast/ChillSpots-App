@@ -14,40 +14,40 @@ function Hero () {
     // --------------------------------------------------------
 
     // testing the sign in feature
-    // useEffect(() => {
-    //     async function signInHandler () {
-    //         try {
-    //             const username = "michael_jackson"
-    //             const password = "securePassword123"
+    useEffect(() => {
+        async function signInHandler () {
+            try {
+                const username = "michael_jackson"
+                const password = "securePassword123"
 
-    //            const res = await signIn(username, password)
+                const res = await signIn(username, password)
 
-    //             setName(res.name)
+                setName(res.data.name)
 
-    //         } catch (err) {
-    //             console.error(`Error fetching user data: ${err}`)
-    //         }
-    //     }
-    //     signInHandler()
-    // }, [])
+            } catch (err) {
+                console.error(`Error fetching user data: ${err}`)
+            }
+        }
+        signInHandler()
+    }, [])
 
 
-    // // testing the sign out feature
-    // useEffect(() => {
-    //     async function signOutHandler () {
-    //         try {
-    //             const res = await signOut()
-    //             if (res.data.message) {
-    //                 console.log("set name to skank")
-    //                 setName("skank")
-    //             }
-    //             console.log(res.data)
-    //         } catch (err) {
-    //             console.error(`Sign out error: ${err}`)
-    //         }
-    //     }
-    //     signOutHandler()
-    // }, [])
+    // testing the sign out feature
+    useEffect(() => {
+        async function signOutHandler () {
+            try {
+                const res = await signOut()
+                console.log(res.data)
+                if (res.data.message) {
+                    console.log("set name to skank")
+                    setName("skank")
+                }                
+            } catch (err) {
+                console.error(`Sign out error: ${err}`)
+            }
+        }
+        signOutHandler()
+    }, [])
     
 
     // --------------------------------------------------------
