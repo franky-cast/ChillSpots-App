@@ -4,25 +4,54 @@ import Hero from "./components/hero/Hero.jsx"
 import Locations from "./components/locations/Locations.jsx"
 import Footer from "./components/footer/Footer.jsx"
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import signIn from "./api/users/signIn"
+import signOut from "./api/users/signOut"
 
-import axios from "axios"
 
 // app css
 import "./app.css"
 
 function App() {
+
+    // --------------------------------------------------------
+    // req.cookies.sessionId does not exist when calling the functions from front end.
+    // they do, however, exist, and everything works properly, when making the requests with insomnia...
+    // --------------------------------------------------------
+    // testing the sign in feature
+    // calls api func, fired by button
+    async function signInHandler (setState) {
+        try {
+            const username = "michael_jackson"
+            const password = "securePassword123"
+            const res = await signIn(username, password)
+            console.log(res)
+            setState(res.data.name)   
+        } catch (err) {
+            console.error(`Error fetching user data: ${err}`)
+        }
+    }
+    // testing the sign out feature
+    // calls api func, fired by button
+    async function signOutHandler (setState) {
+        try {
+            const res = await signOut()
+            console.log(res.data)
+            if (res.data.messgage) {
+                setState("default")
+            }
+        } catch (err) {
+            console.error(`Error fetching user data: ${err}`)
+        }
+    }
+
+
   return (
-    <Router className="app">
-      <Nav />
-      <Routes>
-        <Route exact path="/home" Component={Hero}></Route>
-      </Routes>
-      <Routes>
-        <Route exact path="/home" Component={Locations}></Route>
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="app">
+        <Nav />
+        <Hero key={1} signIn={signInHandler} signOut= {signOutHandler}/>
+        <Locations />
+        <Footer />
+    </div>
   )
 }
 

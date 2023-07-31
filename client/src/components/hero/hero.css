@@ -12,12 +12,34 @@
     justify-content: center;
     align-content: flex-end;
 
-    padding-top: 8em;
+    padding-top: 3.5em;
 }
 
 .greeting {
     color: #fff;
     font-size: 32px;
     margin: 0;
-    padding-bottom: 2em;
+    padding: 1em 0 1em 0;
+}
+
+.demo-btns-container{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.demo-btn-wrap{
+    width: 35%;
+}
+
+.demoBtn {
+    padding: 1em;
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+.button:active{
+    background-color: var(--dark);
 }
