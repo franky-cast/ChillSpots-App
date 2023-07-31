@@ -17,7 +17,6 @@ const { validateSignIn, validateRegistration, checkProfilePicture, validateSignO
 router.route('/signin').post(validateSignIn, (req, res) => {
     try{
         const session = userController.signIn(req)
-        const sessionToken = session.token
         res.cookie('sessionId', session.token, {
             httpOnly: true,
             maxAge: 24 * 60 * 60 * 1000
@@ -39,7 +38,7 @@ router.route('/signout').get((req, res) => {
     
     // -------------------------------------------------------------------------------------------------
     // keeps throwing error: "req.cookies['sessionId'] does not exist... \n User is not signed in."
-    // see Hero.jsx
+    // see App.jsx
 
     // everything works when i test the routes with insomnia
     // -------------------------------------------------------------------------------------------------

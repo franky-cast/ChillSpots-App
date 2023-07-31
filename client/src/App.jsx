@@ -16,7 +16,10 @@ function App() {
     // --------------------------------------------------------
     // req.cookies.sessionId does not exist when calling the functions from front end.
     // they do, however, exist, and everything works properly, when making the requests with insomnia...
+    // is it becasue react app running on localhost:5173 and express app running on localhost:8080 ???
     // --------------------------------------------------------
+
+
     // testing the sign in feature
     // calls api func, fired by button
     async function signInHandler (setState) {
@@ -36,9 +39,10 @@ function App() {
         try {
             const res = await signOut()
             console.log(res.data)
-            if (res.data.messgage) {
-                setState("default")
-            }
+            // if (res.data.messgage) {
+            //     setState("default")
+            // }
+            setState("default")
         } catch (err) {
             console.error(`Error fetching user data: ${err}`)
         }
