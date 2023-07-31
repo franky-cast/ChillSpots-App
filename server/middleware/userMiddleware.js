@@ -12,14 +12,14 @@ const validateSignIn = async (req, res, next) => {
             
             // checks if user is already signed in
             if (req.cookies.sessionId) {
-                return res.status(409).json( {error: 'User is already signed in'})
+                return res.status(409).json( {error: 'No duplicate sign ins. User is already signed in'})
             }
             next()
         } else {
             return res.status(404).json( {error: 'Incorrect username or password'} )
         }
     } catch (err) {
-        return res.status(400).json(`Internal server error: ${err}`)
+        return res.status(400).json({ error: `Internal server error --> validateSignIn() userMiddleware.js: ${err}` })
     }
 }
 
@@ -31,10 +31,10 @@ const validateRegistration = async (req, res, next) => {
       if (!user){
         next()
       } else {
-        return res.status(409).json( {error: 'Username already exists'} )
+        return res.status(409).json({ error: 'Username already exists'} )
       }
     } catch (err) {
-        return res.status(500).json(`Internal server error: ${err}`)
+        return res.status(500).json({ error: `Internal server error --> validateRregistration() userMiddelware.js: ${err}` })
     }
 }
 
@@ -48,7 +48,7 @@ const checkProfilePicture = (req, next) => {
 }
 
 export default {
-    checkProfilePicture,
     validateSignIn,
-    validateRegistration
+    validateRegistration,
+    checkProfilePicture
 }

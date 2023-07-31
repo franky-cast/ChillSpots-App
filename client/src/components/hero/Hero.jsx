@@ -1,29 +1,12 @@
 import "./hero.css"
 import { useState, useEffect } from "react"
-import signIn from "../../api/users/signIn"
 import Searchbar from "../searchbar/Searchbar"
 
-function Hero () {
-    // const [name, setUser] = useState("human")
 
-    // testing the sign in feature
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         const username = "michael_jackson"
-    //         const password = "securePassword123"
-    //         try {
-    //             const userData = await signIn(username, password)
-    //             console.log(userData)
-    //             setUser(userData.name)
-    //         } catch (err) {
-    //             console.error(`Error fetching user data: ${err}`)
-    //         }
-    //     }
-    //     fetchUserData ()
-    // }, [])
+function Hero (props) {
+    const { signIn,  signOut } = props
+    const [name, setName] = useState("default")
     
-    
-
     const [timeOfDay, setTimeOfDay] = useState()
     let time
     useEffect (() => {
@@ -40,9 +23,14 @@ function Hero () {
 
     return (
         <div className="hero">
-            <p className="greeting">Good {timeOfDay}</p>
+            <div className="demo-btns-container">
+                <div className="demo-btn-wrap"><button onClick={() => signIn(setName)} className="demoBtn">Test signIn</button></div>
+                <div className="demo-btn-wrap"><button onClick={() => signOut(setName)} className="demoBtn">Test signOut</button></div>            
+            </div>
+            <p className="greeting">Good {timeOfDay}, {name}</p>
             <Searchbar />
         </div>
+
     )
 }
 

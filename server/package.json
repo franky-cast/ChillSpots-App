@@ -5,7 +5,7 @@
   "description": "Backend for MERN setup Running Locations App",
   "main": "app.js",
   "scripts": {
-    "start": "node .",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

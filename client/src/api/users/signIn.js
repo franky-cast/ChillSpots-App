@@ -1,19 +1,15 @@
-const signIn = async (usernameEntered, passwordEntered) => {
+import axios from 'axios'
+
+
+async function signIn (usernameEntered, passwordEntered) {
 	try {
-		const res = await fetch(`${import.meta.env.VITE_APP_URL}/users/signin`, {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				username: usernameEntered,
-				password: passwordEntered
-			})
+		const res = await axios.post(`${import.meta.env.VITE_APP_URL}/users/signin`, {
+		username: usernameEntered,
+		password: passwordEntered
 		})
-		return await res.json()
+		return res
 	} catch (err) {
-		res.json(`Internal server error: ${err}`)
+		console.error(`Internal server error: ${err}`)
 	}
 }
 
