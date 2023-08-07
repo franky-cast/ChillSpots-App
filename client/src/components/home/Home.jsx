@@ -13,6 +13,7 @@ function Home() {
     
     const [timeOfDay, setTimeOfDay] = useState()
     let time
+    
     useEffect(() => {
       // Function to determine the time of day
       const determineTimeOfDay = () => {

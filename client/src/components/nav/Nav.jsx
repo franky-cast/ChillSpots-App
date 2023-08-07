@@ -6,6 +6,7 @@ import logo from "/assets/logos/footerlogo.png"
 import menu from "/assets/utilities/hamburger.jpeg"
 import * as FaIcons from 'react-icons/fa';
 import * as FaIcons6 from 'react-icons/fa6';
+import { FiLogIn } from "react-icons/fi";
 
 
 function Nav() {
@@ -69,6 +70,13 @@ function Nav() {
                         <Link to='/profile'>
                             <FaIcons6.FaCircleUser className='nav-icon' />
                             <span>Profile</span>
+                        </Link>
+                    </li>
+
+                    <li className='nav-text'>
+                        <Link to='/login'>
+                            <FiLogIn className="nav-icon" />
+                            <span>Login</span>
                         </Link>
                     </li>
                 </ul>

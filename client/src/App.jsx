@@ -67,7 +67,7 @@ function App() {
                 <Route path='/saved' element={<Saved />} />
                 <Route path='/profile' element={<Profile />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </Router>
     </div>
   )
