@@ -1,8 +1,13 @@
 // components
 import Nav from "./components/nav/Nav.jsx"
-import Hero from "./components/hero/Hero.jsx"
-import Locations from "./components/locations/Locations.jsx"
+import Login from "./components/login/Login.jsx"
+import Signup from "./components/signup/Signup.jsx"
+import Home from "./components/home/Home.jsx"
+import Discover from "./components/discover/Discover.jsx"
+import Saved from "./components/saved/Saved.jsx"
+import Profile from "./components/profile/Profile.jsx"
 import Footer from "./components/footer/Footer.jsx"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import signIn from "./api/users/signIn"
 import signOut from "./api/users/signOut"
@@ -51,10 +56,19 @@ function App() {
 
   return (
     <div className="app">
-        <Nav />
-        <Hero key={1} signIn={signInHandler} signOut= {signOutHandler}/>
-        <Locations />
-        <Footer />
+        <Router>
+            <Nav />
+            <Routes>
+                <Route path='/' exact element={<Home key={1} signIn={signInHandler} signOut= {signOutHandler} />} />
+                <Route path='/login' element={<Login />} />
+                {/* <Route path='/logout' element={<Home />} /> */}
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/discover' element={<Discover />} />
+                <Route path='/saved' element={<Saved />} />
+                <Route path='/profile' element={<Profile />} />
+            </Routes>
+            {/* <Footer /> */}
+        </Router>
     </div>
   )
 }
