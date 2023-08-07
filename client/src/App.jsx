@@ -2,6 +2,7 @@
 import Nav from "./components/nav/Nav.jsx"
 import Hero from "./components/hero/Hero.jsx"
 import Locations from "./components/locations/Locations.jsx"
+import Mapview from "./components/mapview/Mapview.jsx"
 import Footer from "./components/footer/Footer.jsx"
 
 import signIn from "./api/users/signIn"
