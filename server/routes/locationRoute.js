@@ -8,12 +8,13 @@ import locationController from "../controllers/locationController.js";
 import Location from "../models/location.js";
 
 // import middlewares
-import locationMiddleware from "../middleware/locationMiddleware.js";
+import locationMiddleware from "../middleware/locationMiddleware.js"
+const { geoCode } = locationMiddleware
 
 
 // API ROUTES
 
-router.route('/add').post((req, res) => {
+router.route('/add').post(geoCode, (req, res) => {
     locationController.addLocation(req)
         .then(() => res.json('Location added!'))
         .catch(err => res.status(400).json(`Error: ${err}`))

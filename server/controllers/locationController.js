@@ -2,21 +2,21 @@ import Location from "../models/location.js";
 
 // handler functions
 const addLocation = (req) => {
-    const { name, pictures, stats, address, city, state, latitude, longitude, approved, timestamp} = req.body
+    const { name, pictures, address, city, state, lat, lng, approved, stats, timestamp} = req.body
 
     const newLocation = new Location ({
         name,
         pictures,
-        stats,
         address,
         city,
         state,
-        latitude,
-        longitude,
+        lat,
+        lng,
+        stats,
         approved,
         timestamp
     })
-
+    
     return newLocation.save()
 }
 
