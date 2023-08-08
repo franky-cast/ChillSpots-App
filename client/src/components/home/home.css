@@ -1,0 +1,69 @@
+/* Hero */
+
+.hero {
+  background-image: url("/assets/locations/sunsetCliffs.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  height: 250px;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+
+  padding-top: 3.5em;
+}
+
+.greeting {
+  color: #fff;
+  font-size: 32px;
+  margin: 0;
+  padding: 1em 0 1em 0;
+}
+
+.demo-btns-container{
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.demo-btn-wrap{
+  width: 35%;
+}
+
+.demoBtn {
+  padding: 1em;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  border: none;
+}
+
+.button:active{
+  background-color: var(--dark);
+}
+
+/* Locations */
+
+.locations {
+  width: 100%;
+  padding: 2.5em 0 1em 0;
+}
+
+.card-flex{    
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.heading {
+  font-size: 1.5rem;
+  padding-left: 1em;
+}
+
+.daygo {
+  text-decoration: underline;
+}
