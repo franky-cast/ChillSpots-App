@@ -11,8 +11,10 @@ async function getAddress (req, res, next) {
 
         switch (status) {
             case "OK":
-                const { formatted_address } = results[0]
+                const { formatted_address, place_id } = results[0]
                 req.body.address = formatted_address
+                req.body.place_id = place_id
+
                 next()
                 break
 
@@ -62,8 +64,9 @@ async function getLatLng (req, res, next) {
                 req.body.lat = lat
                 req.body.lng = lng
 
-                const { formatted_address } = results[0]
+                const { formatted_address, place_id } = results[0]
                 req.body.address = formatted_address
+                req.body.place_id = place_id
                 
                 next()
                 break

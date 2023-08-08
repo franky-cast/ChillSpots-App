@@ -32,6 +32,7 @@ const locationSchema = new mongoose.Schema({
         reviews: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Review' } ],
         tags: [{ type: String, enum: locationTags }]
     },
+    place_id: { type: String, required: true },
     timestamp: { type: Date, default: Date.now }
 })
 
