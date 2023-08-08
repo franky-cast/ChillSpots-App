@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 async function signIn (usernameEntered, passwordEntered) {
 	try {
 		const res = await axios.post(`${import.meta.env.VITE_APP_URL}/users/signin`, {

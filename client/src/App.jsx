@@ -1,5 +1,8 @@
 // components
 import Nav from "./components/nav/Nav.jsx"
+import Hero from "./components/hero/Hero.jsx"
+import Locations from "./components/locations/Locations.jsx"
+import Mapview from "./components/mapview/Mapview.jsx"
 import Login from "./components/login/Login.jsx"
 import Signup from "./components/signup/Signup.jsx"
 import Home from "./components/home/Home.jsx"
