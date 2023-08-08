@@ -21,8 +21,6 @@ const locationSchema = new mongoose.Schema({
         { type: String, required: true }
     ],
     address: { type: String, required: true},
-    city: { type: String, required: true},
-    state: { type: String, required: true},
     lat: { type: Number, require: true},
     lng: { type: Number, require: true },
     approved: { type: Boolean, default: false },
