@@ -61,6 +61,10 @@ async function getLatLng (req, res, next) {
                 const { lat, lng } = results[0].geometry.location
                 req.body.lat = lat
                 req.body.lng = lng
+
+                const { formatted_address } = results[0]
+                req.body.address = formatted_address
+                
                 next()
                 break
 
