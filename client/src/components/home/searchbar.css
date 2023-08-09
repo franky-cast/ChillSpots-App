@@ -15,21 +15,21 @@
     margin: 0 auto;
     padding: .5em;
     padding-left: 1.25em;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
     border: none;
     width: 100%;
 }
 input:focus,
 textarea:focus,
 select:focus {
-    outline: none;
+    outline: none;    
 }
 
 .button {
     background-color: pink;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
     border: none;
 }
 
@@ -47,4 +47,22 @@ select:focus {
 
 .svg-arrow:active{
     background-color: var(--dark);
+}
+
+
+@media (min-width: 900px) {
+    .form {
+        width: 50%;
+    }
+    .form__input {
+        height: 70px;
+        font-size: 1.25rem;
+        padding-left: 2.25em;
+        border-top-left-radius: 35px;
+        border-bottom-left-radius: 35px;
+    }
+    .button {
+        border-top-right-radius: 35px;
+        border-bottom-right-radius: 35px;
+    }
 }

@@ -1,6 +1,6 @@
 import './home.css'
 import { useState, useEffect } from "react"
-import Searchbar from "../searchbar/Searchbar"
+import Searchbar from "./Searchbar.jsx"
 import Card from '../card/Card'
 import fetchLocations from "../../api/locations/location.js"
 
@@ -44,7 +44,7 @@ function Home(props) {
     const data = locations.map(location => (location.approved && <Card key={location._id} location={location}/>))
 
   return (
-    <div>
+    <div className='home'>
       <div className="hero">
           <div className="demo-btns-container">
               <div className="demo-btn-wrap"><button onClick={() => signIn(setName)} className="demoBtn">Test signIn</button></div>
