@@ -29,13 +29,13 @@ function Nav() {
                         alt='hamburger menu'
                         className='hamburger-menu-img' />
                 </Link>
-                <div className="img-wrap">
+                <a href="/" className="img-wrap">
                     <img
                         src={logo}
                         alt="chill spots"
                         className="img"
                     />
-                </div>
+                </a>
 
                 <nav className='pc-nav'>
                     <ul className='nav-menu-items' onClick={showSidebar}>
