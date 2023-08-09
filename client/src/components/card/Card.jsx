@@ -7,7 +7,7 @@ import balboaPark from "/assets/locations/balboapark.jpeg"
 
 
 function Card (props) {
-    const { name, pictures, stats, address, city, state, latitude, longtitude, approved, timestamp } = props.location
+    const { name, pictures, stats, address, lat, lng, approved, place_id, timestamp } = props.location
 
     let coverImg
     switch (name) {
@@ -26,16 +26,16 @@ function Card (props) {
     }
 
     return (
-        <a className="card--a-tag" href="#">
+        <a className="card--a-tag" href={`/mapview/${props.location._id}`}>
             <div className="card">
                 <img src={coverImg} alt={`image of ${name}`} className="card--image"></img>
                 <div className="card--info">
                     <img src={star} alt="Star icon" className="star-png"></img>
                     {/* <p className="card--rating">{location.stats.rating}</p> */}
                     {/* <p className="card--reviews gray">({location.stats.reviewCount})</p> */}
-                    <p className="card--country gray">{city}</p>
+                    <p className="card--country gray">{name}</p>
                 </div>
-                <p className="card--title">{name}</p>
+                {/* <p className="card--title">{description}</p> */}
                 {/* <p className="card--price"> <strong>From ${location.price}</strong> /person</p> */}
             </div>
         </a>

@@ -12,8 +12,7 @@ function Home(props) {
     const [ locations, setLocations ] = useState([])
     
     const [timeOfDay, setTimeOfDay] = useState()
-    let time
-    
+
     useEffect(() => {
       // Function to determine the time of day
       const determineTimeOfDay = () => {
@@ -42,7 +41,7 @@ function Home(props) {
       fetchLocationsData();
     }, []);
 
-    const data = locations.map(location => (location.approved && <Card key={location._id} location={location}/>) )
+    const data = locations.map(location => (location.approved && <Card key={location._id} location={location}/>))
 
   return (
     <div>
