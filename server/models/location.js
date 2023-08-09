@@ -20,20 +20,17 @@ const locationSchema = new mongoose.Schema({
     pictures: [
         { type: String, required: true }
     ],
+    address: { type: String, required: true},
+    lat: { type: Number, require: true},
+    lng: { type: Number, require: true },
+    approved: { type: Boolean, default: false },
     stats: {
         rating: { type: Number },
         reviewCount: { type: Number },
         reviews: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Review' } ],
         tags: [{ type: String, enum: locationTags }]
     },
-
-    address: { type: String, required: true},
-    city: { type: String, required: true},
-    state: { type: String, required: true},
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true },
-    approved: { type: Boolean, default: false },
-
+    place_id: { type: String, required: true },
     timestamp: { type: Date, default: Date.now }
 })
 

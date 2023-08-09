@@ -1,17 +1,15 @@
-import { MapContainer, TileLayer, Popup, Marker} from 'react-leaflet'
-
 export default function Map (props) {
     const { coordinates } = props
     
     return (
-        <MapContainer center={coordinates} zoom={13} scrollWheelZoom={false}>
-            <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={coordinates}>
-                <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
-            </Marker>
-        </MapContainer>
+        <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src={ `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.GOOGLE_API_KEY}&q=${props.location}` }>
+        </iframe>
     )
 }

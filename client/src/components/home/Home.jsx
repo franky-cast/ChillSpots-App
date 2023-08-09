@@ -5,9 +5,9 @@ import Card from '../card/Card'
 import fetchLocations from "../../api/locations/location.js"
 
 
-function Home() {
+function Home(props) {
 
-    // const { signIn,  signOut } = props
+    const { signIn,  signOut } = props
     const [name, setName] = useState("default")
     const [ locations, setLocations ] = useState([])
     
