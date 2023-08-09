@@ -42,7 +42,7 @@ function Nav() {
                         <li className="nav-item">
                             <Link to='/'>
                                 <FaIcons.FaSearch className='nav-icon' />
-                                <span>Search</span>
+                                <span>Home</span>
                             </Link>
                         </li>
                     
@@ -88,7 +88,7 @@ function Nav() {
                     <li className="nav-item">
                         <Link to='/'>
                             <FaIcons.FaSearch className='nav-icon' />
-                            <span>Search</span>
+                            <span>Home</span>
                         </Link>
                     </li>
                     

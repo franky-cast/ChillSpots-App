@@ -106,6 +106,9 @@
     .hamburger-menu-wrap {
         display: none;
     }
+    .nav {
+        display: none;
+    }
     .pc-nav {
         display: inline;
     }
