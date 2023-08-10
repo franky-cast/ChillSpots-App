@@ -5,51 +5,44 @@ import Card from '../card/Card'
 import fetchLocations from "../../api/locations/location.js"
 
 
-function Home(props) {
-
-    const { signIn,  signOut } = props
-    const [name, setName] = useState("default")
+function Home() {
     const [ locations, setLocations ] = useState([])
-    
+
     const [timeOfDay, setTimeOfDay] = useState()
 
     useEffect(() => {
-      // Function to determine the time of day
+      // Creates a time object and sets state
       const determineTimeOfDay = () => {
-        const time = new Date().getHours();
+        const time = new Date().getHours()
         if (time >= 0 && time < 12) {
-          setTimeOfDay("morning");
+          setTimeOfDay("morning")
         } else if (time >= 12 && time < 19) {
-          setTimeOfDay("afternoon");
+          setTimeOfDay("afternoon")
         } else {
-          setTimeOfDay("evening");
+          setTimeOfDay("evening")
         }
       };
     
-      // Function to fetch locations data
+      // Fetches data of all locations in Mongo DB
       const fetchLocationsData = async () => {
         try {
-          const data = await fetchLocations();
-          setLocations(data);
+          const data = await fetchLocations()
+          setLocations(data)
         } catch (err) {
-          console.error(`Error fetching location data: ${err}`);
+          console.error(`Error fetching location data: ${err}`)
         }
       };
     
-      // Call the functions
-      determineTimeOfDay();
-      fetchLocationsData();
-    }, []);
+      // Runs on mount
+      determineTimeOfDay()
+      fetchLocationsData()
+    }, [])
 
     const data = locations.map(location => (location.approved && <Card key={location._id} location={location}/>))
 
   return (
     <div className='home'>
       <div className="hero">
-          <div className="demo-btns-container">
-              <div className="demo-btn-wrap"><button onClick={() => signIn(setName)} className="demoBtn">Test signIn</button></div>
-              <div className="demo-btn-wrap"><button onClick={() => signOut(setName)} className="demoBtn">Test signOut</button></div>            
-          </div>
           <p className="greeting">Good {timeOfDay}, {name}</p>
           <Searchbar />
       </div>

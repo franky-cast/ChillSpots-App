@@ -4,7 +4,7 @@ import User from "../models/user.js"
 const validateSignIn = async (req, res, next) => {
     // checks if user is already registered
     try {
-        const user = await User.findOne({ username: req.body.username })
+        const user = await User.findOne({ email: req.body.email })
         if (user && user.password === req.body.password) {
             // binds the userId to the req body so that it make be used in corresponding eventHandler
             req.userId = user.id
@@ -16,7 +16,7 @@ const validateSignIn = async (req, res, next) => {
             }
             next()
         } else {
-            return res.status(404).json( {error: 'Incorrect username or password'} )
+            return res.status(404).json( {error: `Incorrect username or password... user --> ${user}`} )
         }
     } catch (err) {
         return res.status(400).json({ error: `Internal server error --> validateSignIn() userMiddleware.js: ${err}` })

@@ -7,7 +7,7 @@ const signIn = (req) => {
     const randomToken = cryptoRandomString({ length: 64})
     const session = {
         userId: req.userId,
-        username: req.body.username,
+        email: req.body.email,
         name: req.name,
         token: randomToken
     }

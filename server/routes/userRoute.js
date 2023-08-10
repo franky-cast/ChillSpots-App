@@ -23,7 +23,7 @@ router.route('/signin').post(validateSignIn, (req, res) => {
         })
         res.json({
             message: 'Succesful sign in',
-            name: session.username
+            name: session.name
         }) 
     } catch (err) {
         res.json({ error: `Internal server error --> '/users/signin' : ${err}` })
