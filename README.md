@@ -17,14 +17,15 @@ ChillSpots is an app that helps you discover the best spots to relax and chill i
 
 ## Technologies Used
 
-- React.js
-- Express.js
-- Node.js
-- MongoDB
+- React.js        - Google Maps Embed API
+- Express.js      - Google Geocoding API
+- Node.js         - Google Maps JavaScript API
+- MongoDB         - Axios
 
 
 ## How to run on local machine
 ###Must have access credentials to mognoDB being used - authorized by owners*
+###Must have Google Maps API Key*
 - Clone repo
 - Install npm
 - Install node
