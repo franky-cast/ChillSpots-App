@@ -116,6 +116,10 @@
   background-color: black;
 }
 
+.no-account {
+  margin-top: 1.5rem;
+}
+
 .no-account span {
   color: gray;
 }
@@ -131,5 +135,8 @@
   .login-header {
     font-size: 2rem;
     padding: 2.75rem 0;
+  }
+  .no-account {
+    margin-top: 2rem;
   }
 }

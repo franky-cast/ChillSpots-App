@@ -2,7 +2,7 @@ import "./login.css"
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook, BsApple } from "react-icons/bs";
 
-function Login () {    
+function Login () {
     return (
         <div className="login-page">
 
@@ -48,8 +48,6 @@ function Login () {
                         </button>
                     </div>
                 </div>
-
-                <br></br>
 
                 <p className="no-account">
                     <span>Don't have an account?</span> <a href="/signup"> Sign up for free </a>
