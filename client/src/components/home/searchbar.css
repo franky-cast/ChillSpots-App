@@ -8,7 +8,7 @@
     margin: 0 auto;
 }
 
-.form__input {
+.searchbar__input {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     color: var(--dark);
     font-size: 1.15rem;
@@ -26,14 +26,14 @@ select:focus {
     outline: none;    
 }
 
-.button {
+.searchbar__button {
     background-color: pink;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     border: none;
 }
 
-.button:active{
+.searchbar__button:active{
     background-color: var(--dark);
 }
 
@@ -54,14 +54,14 @@ select:focus {
     .form {
         width: 50%;
     }
-    .form__input {
+    .seachbar__input {
         height: 70px;
         font-size: 1.25rem;
         padding-left: 2.25em;
         border-top-left-radius: 35px;
         border-bottom-left-radius: 35px;
     }
-    .button {
+    .searchbar__button {
         border-top-right-radius: 35px;
         border-bottom-right-radius: 35px;
     }
