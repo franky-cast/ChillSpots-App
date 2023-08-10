@@ -9,13 +9,14 @@ import * as FaIcons6 from 'react-icons/fa6';
 import { FiLogIn } from "react-icons/fi";
 
 
+
+
 function Nav() {
 
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => {
         setSidebar(!sidebar);
-        console.log(sidebar);
     };
     
     return (
@@ -28,13 +29,52 @@ function Nav() {
                         alt='hamburger menu'
                         className='hamburger-menu-img' />
                 </Link>
-                <div className="img-wrap">
+                <a href="/" className="img-wrap">
                     <img
                         src={logo}
                         alt="chill spots"
                         className="img"
                     />
-                </div>
+                </a>
+
+                <nav className='pc-nav'>
+                    <ul className='nav-menu-items' onClick={showSidebar}>
+                        <li className="nav-item">
+                            <Link to='/'>
+                                <FaIcons.FaSearch className='nav-icon' />
+                                <span>Home</span>
+                            </Link>
+                        </li>
+                    
+                        <li className="nav-item">
+                            <Link to='/discover'>
+                                <FaIcons.FaGlobeAmericas className='nav-icon' />
+                                <span>Discover</span>
+                            </Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link to='/saved'>
+                                <FaIcons.FaBookmark className='nav-icon' />
+                                <span>Saved</span>
+                            </Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link to='/profile'>
+                                <FaIcons6.FaCircleUser className='nav-icon' />
+                                <span>Profile</span>
+                            </Link>
+                        </li>
+
+                        <li className='nav-item'>
+                            <Link to='/login'>
+                                <FiLogIn className="nav-icon" />
+                                <span>Login</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         
     
@@ -45,35 +85,35 @@ function Nav() {
                             <FaIcons6.FaXmark />
                         </Link>
                     </li>
-                    <li className="nav-text">
+                    <li className="nav-item">
                         <Link to='/'>
                             <FaIcons.FaSearch className='nav-icon' />
-                            <span>Search</span>
+                            <span>Home</span>
                         </Link>
                     </li>
                     
-                    <li className="nav-text">
+                    <li className="nav-item">
                         <Link to='/discover'>
                             <FaIcons.FaGlobeAmericas className='nav-icon' />
                             <span>Discover</span>
                         </Link>
                     </li>
 
-                    <li className="nav-text">
+                    <li className="nav-item">
                         <Link to='/saved'>
                             <FaIcons.FaBookmark className='nav-icon' />
                             <span>Saved</span>
                         </Link>
                     </li>
 
-                    <li className="nav-text">
+                    <li className="nav-item">
                         <Link to='/profile'>
                             <FaIcons6.FaCircleUser className='nav-icon' />
                             <span>Profile</span>
                         </Link>
                     </li>
 
-                    <li className='nav-text'>
+                    <li className='nav-item'>
                         <Link to='/login'>
                             <FiLogIn className="nav-icon" />
                             <span>Login</span>

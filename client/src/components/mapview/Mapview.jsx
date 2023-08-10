@@ -1,26 +1,29 @@
-import './mapview.css'
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import fetchLocation from "../../api/locations/getCoordinates.js"
+import './mapview.css'
 import Map from './Map.jsx'
 
-export default function Mapview (props) {
+export default function Mapview () {
     const [ map, setMap] = useState()
+
+    // extracting location's object id from the URL
+    const { id } = useParams()
 
     useEffect (() => {
         async function fetchLocationData (id) {
             try {
                 const res = await fetchLocation(id)
-                const { latitude, longitude } = res
-                const position = [latitude, longitude]
+                const { _id, plus_code } = res
 
-                setMap( <Map key={position} coordinates={position} /> )
+                setMap( <Map key={_id} plus_code={plus_code} /> )
 
             } catch (err) {
                 console.log(`Error fetching location data for mapview: ${err}`)
             }
         }
-        // this id needs to be passed as prop
-        fetchLocationData("64c2d31c3e7b03d9dd46268f")
+        
+        fetchLocationData(id)
     }, [])
 
     return (

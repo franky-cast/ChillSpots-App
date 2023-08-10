@@ -50,7 +50,7 @@
 
 .locations {
   width: 100%;
-  padding: 2.5em 0 1em 0;
+  padding: 2em 0 1em 0.5em;
 }
 
 .card-flex{    
@@ -66,4 +66,47 @@
 
 .daygo {
   text-decoration: underline;
+}
+
+
+
+@media (min-width: 900px) {
+  /* Hero */
+  .hero {
+    height: 310px;
+    background-position: top;
+    padding-top: 5.25em;
+  }
+
+  .demo-btns-container {
+    justify-content: space-evenly;
+    gap: 0;
+  }
+  .demo-btn-wrap {
+    width: 10%;
+  }
+  .demoBtn {
+    padding: 1em;
+    border-radius: 25px;
+  }
+
+  .greeting { 
+    font-size: 42px;
+    padding: 1.5em 0 1.5em 0;
+  }
+
+  /* Locations */
+  .locations {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.75em;
+    padding: 2em;
+  }
+  .heading {
+    font-size: 1.75rem;
+    padding-left: 0.75em;
+  }
+  .daygo {
+    font-size: 2rem;
+  }
 }

@@ -31,6 +31,7 @@ const locationSchema = new mongoose.Schema({
         tags: [{ type: String, enum: locationTags }]
     },
     place_id: { type: String, required: true },
+    plus_code: { type: String, required: true },
     timestamp: { type: Date, default: Date.now }
 })
 

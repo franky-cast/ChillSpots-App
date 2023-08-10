@@ -10,8 +10,12 @@ import Discover from "./components/discover/Discover.jsx"
 import Saved from "./components/saved/Saved.jsx"
 import Profile from "./components/profile/Profile.jsx"
 import Footer from "./components/footer/Footer.jsx"
+
+// react router dom
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
+// API functions -- being used for testing currently
 import signIn from "./api/users/signIn"
 import signOut from "./api/users/signOut"
 
@@ -69,6 +73,7 @@ function App() {
                 <Route path='/discover' element={<Discover />} />
                 <Route path='/saved' element={<Saved />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/mapview/:id' element={<Mapview />} />
             </Routes>
             {/* <Footer /> */}
         </Router>
