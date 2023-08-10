@@ -3,7 +3,12 @@
 ChillSpots is an app that helps you discover the best spots to relax and chill in San Diego. Whether you want to watch sunsets, listen to music, have a picnic, stargaze, or simply find a quiet place to unwind, ChillSpots creates a platform for you.
 
 
-<img width="440" alt="Screenshot 2023-07-27 at 4 33 28 PM" src="https://github.com/franky-cast/Running-Locations-App/assets/113398924/67603e4e-00a2-4702-885a-5166ce05f2cf">
+<img width="435" alt="chillspotsScHome" src="https://github.com/franky-cast/ChillSpots-App/assets/113398924/00cfa91e-8e8f-43dc-a7e8-fee81c8c666d">
+
+<img width="435" alt="chillspotsScSignup" src="https://github.com/franky-cast/ChillSpots-App/assets/113398924/ab3ce139-7732-4d30-8598-b147a307e239">
+
+<img width="1512" alt="chillspotsScLogin" src="https://github.com/franky-cast/ChillSpots-App/assets/113398924/3721acc0-a7d0-47e4-8cbd-c6d1da0b7bcc">
+
 
 
 ## Features

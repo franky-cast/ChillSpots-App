@@ -54,7 +54,7 @@
   gap: 1rem;
 }
 
-.input-container__input {
+.login-container__input {
   border: 0.5px solid gray;
   width: 85%;
   margin: 0 auto;
@@ -67,8 +67,20 @@
   border-radius: 10px;
 }
 
-.login-container button {
-  background-color: #34495E;
+.login-container div {
+  padding-top: 5px;
+}
+
+.login-container a {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  transition: 0.5s;
+}
+
+.login-container a:hover {
+  color: #34495E;
+  background: white;
 }
 /*  */
 
@@ -117,7 +129,7 @@
 }
 
 .no-account {
-  margin-top: 1.5rem;
+  padding-top: 1rem;
 }
 
 .no-account span {
@@ -128,6 +140,19 @@
   color: #F6E3D4;
   padding-left: 8px;
 }
+
+.terms {
+  width: 80%;
+  margin: 0 auto;
+
+  font-size: 10px;
+  color: #34495E;
+}
+
+.terms span {
+  text-decoration: underline;
+}
+
 @media (min-width: 900px) {
   .login-component {
     width: 30%;
@@ -139,4 +164,7 @@
   .no-account {
     margin-top: 2rem;
   }
+  .terms {
+    font-size: 12px;
+}
 }
