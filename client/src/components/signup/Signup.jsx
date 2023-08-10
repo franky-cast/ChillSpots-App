@@ -55,10 +55,8 @@ function Signup () {
                     <span>Already have an account?</span> <a href="/login"> Log in </a>
                 </p>
 
-                <p className="terms">
-                By continuing to use ChillSpots, you agree to our <span>Terms of Service</span> and <span>Privacy Policy</span>. Personal data added to ChillSpots is public by default — refer to our <span>Privacy FAQs</span> to make changes.
-                </p>
-
+                <p className="terms">By continuing to use ChillSpots, you agree to our <span>Terms of Service</span> and <span>Privacy Policy</span>. Personal data added to ChillSpots is public by default — refer to our <span>Privacy FAQs</span> to make changes.</p>
+                
             </div>
 
         </div>
