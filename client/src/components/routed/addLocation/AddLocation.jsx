@@ -1,7 +1,26 @@
 import './addlocation.css'
-import Dropzone from '../../unrouted//dropzone/Dropzone.jsx'
+import { useState } from 'react'
+import MyDropzone from '../../unrouted/mydropzone/MyDropzone.jsx'
 
 export default function AddLocation () {
+    // state for img urls that have been uploaded tom Google Cloud Bucket by child component
+    const [ imgUrls, setImgUrls] = useState([])
+
+    // updates imgUrls state by appending url
+    function parentCallback (acceptedFiles) {
+
+        // to verify that indeed we are receiving an array of objects that represent the images
+        // that have been uploaded to google cloud bucekts
+        acceptedFiles.array.forEach(element => {
+            console.log(element.sdkUrl)
+        })
+
+
+        // iterates through the parameter (array of objects) and returns each object's sdkUrl
+        // the parameter is an array of images, represented by objects, sent by child component
+        setImgUrls(acceptedFiles.map(item => item.sdkUrl))
+    }    
+
     return (
         <div className='add-location'>
             <h2>Upload location</h2>
@@ -10,27 +29,8 @@ export default function AddLocation () {
                 <input type="text" placeholder='Name of chillspot' name='location-name'/>
 
                 <div className='imgs-upload'>
-                    <Dropzone />
+                    <MyDropzone key={1} parentCallback={parentCallback} />
                 </div>
-
-
-                <div className='coordinates or address of location'>
-                    {/* google maps javascript api here */}
-                </div>
-
-
-                <div className='stats'>
-                    <input name="stats-rating" list="rating" placeholder='Rating'  />
-                    <datalist id="rating" />
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option value="5"></option>
-                </div>
-
-                <input type="submit" />
-
 
             </form>
         </div>
