@@ -1,25 +1,32 @@
 import './addlocation.css'
 import { useState } from 'react'
 import MyDropzone from '../../unrouted/mydropzone/MyDropzone.jsx'
+import addLocation from '../../../api/locations/addLocation'
 
 export default function AddLocation () {
-    // state for img urls that have been uploaded tom Google Cloud Bucket by child component
-    const [ imgUrls, setImgUrls] = useState([])
+    // state for images that have been uploaded from react dropzone
+    const [ locationImgs, setLocationImgs] = useState([])
 
-    // updates imgUrls state by appending url
+    // updates state of location images everytime user adds or removes image
     function parentCallback (acceptedFiles) {
-
-        // to verify that indeed we are receiving an array of objects that represent the images
-        // that have been uploaded to google cloud bucekts
-        acceptedFiles.array.forEach(element => {
-            console.log(element.sdkUrl)
-        })
-
-
-        // iterates through the parameter (array of objects) and returns each object's sdkUrl
-        // the parameter is an array of images, represented by objects, sent by child component
-        setImgUrls(acceptedFiles.map(item => item.sdkUrl))
+        setLocationImgs(acceptedFiles)
     }    
+
+
+    // sends location data to /locations/add
+    // async function formSubmitHandler (locationData, fork) {
+    //     if (locationImgs?.length) {
+    //         try {
+
+    //             const res = await addLocation(locationData, fork)
+    //         } catch (e) {
+    //             console.log(``)
+    //         }
+    //     }
+    // }
+
+    const locationImgsData = locationImgs.map(object => object.path)
+
 
     return (
         <div className='page__add-location'>
@@ -27,11 +34,13 @@ export default function AddLocation () {
                 <h2>Upload location</h2>
 
                 <form action="">
-                    <input type="text" placeholder='Name of chillspot' name='location-name'/>
+                    <input type="text" placeholder='Name of chillspot' name='location-name' required/>
 
                     <div className='imgs-upload'>
                         <MyDropzone key={1} parentCallback={parentCallback} />
                     </div>
+
+                    {locationImgsData}
 
                     {/* <input type="text" placeholder='Description' name='chillspots' className='input__description'/>
 

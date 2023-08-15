@@ -4,7 +4,7 @@ import {useCallback, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 
 export default function MyDropzone( { parentCallback } ) {
-   const [acceptedFiles, setAcceptedFiles] = useState([])
+   const [ acceptedFiles, setAcceptedFiles ] = useState([])
    const [ rejectedFiles, setRejectedFiles ] = useState([])
 
    // when user uses dropzone
@@ -16,9 +16,6 @@ export default function MyDropzone( { parentCallback } ) {
          // from dropzone
          const { path, name, lastModified, size, type } = acceptedFile[0]
 
-         // upload them to google cloud buckets here ****
-
-
          // adding a preview AND GOOGLE CLOUD IMG URL to the acceptedFile
          const accFile = {
          path: path,
@@ -27,17 +24,14 @@ export default function MyDropzone( { parentCallback } ) {
          type: type,
          lastModified: lastModified,
          preview: URL.createObjectURL(acceptedFile[0]),
-         // sdkUrl: sdkUrl 
          }
 
          //updating state
-         setAcceptedFiles(prevFiles => [
-            ...prevFiles,
-            accFile
-         ])
+         setAcceptedFiles(prevFiles => [...prevFiles, accFile])
 
-         // use callback to updated state  (img url) to parent component (so u can add img url to DB)
-         // parentCallback(acceptedFiles)
+         // use callback to updated state (img url) to parent component
+         console.log(prevFiles => [...prevFiles, accFile])
+         parentCallback(prevFiles => [...prevFiles, accFile])
       }
 
 
@@ -60,14 +54,12 @@ export default function MyDropzone( { parentCallback } ) {
 
 
    // X handler for accepted files
-   function removeAccepted (name, sdkUrl) {
+   function removeAccepted (name) {
       // update state
       setAcceptedFiles(files => files.filter(item => item.name != name))
 
-      // delete the img from google cloud buckets
-
-      // use callback to send info (img url) to parent component (so u can delete img url from DB)
-      // parentCallback(acceptedFiles)
+      // use callback to updated state (img url) to parent component
+      parentCallback(files => files.filter(item => item.name != name))
    }
 
 
