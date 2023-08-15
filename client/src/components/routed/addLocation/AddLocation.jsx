@@ -22,17 +22,25 @@ export default function AddLocation () {
     }    
 
     return (
-        <div className='add-location'>
-            <h2>Upload location</h2>
+        <div className='page__add-location'>
+            <div className='add-location'>
+                <h2>Upload location</h2>
 
-            <form action="">
-                <input type="text" placeholder='Name of chillspot' name='location-name'/>
+                <form action="">
+                    <input type="text" placeholder='Name of chillspot' name='location-name'/>
 
-                <div className='imgs-upload'>
-                    <MyDropzone key={1} parentCallback={parentCallback} />
-                </div>
+                    <div className='imgs-upload'>
+                        <MyDropzone key={1} parentCallback={parentCallback} />
+                    </div>
 
-            </form>
+                    {/* <input type="text" placeholder='Description' name='chillspots' className='input__description'/>
+
+                    <input type="radio" id="byAddress" name="address" value="address" />
+                    <label for="byAddress">Enter By Address</label> <br /> */}
+                    
+
+                </form>
+            </div>
         </div>
     )
 }

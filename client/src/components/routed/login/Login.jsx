@@ -64,7 +64,7 @@ function Login () {
 
 
     return (
-        <div className="login-page">
+        <div className="page__login">
 
             <div className="login-component">
 

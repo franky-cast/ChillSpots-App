@@ -78,13 +78,6 @@ export default function MyDropzone( { parentCallback } ) {
    }
 
 
-   // handler for upload photos
-   function uploadHandler (acceptedFiles) {
-      
-   }
-
-
-
    // <-- defining rules for dropzone
    const {getRootProps, getInputProps, isDragActive} = useDropzone({
       onDrop,
@@ -132,11 +125,6 @@ export default function MyDropzone( { parentCallback } ) {
                {rejectedFiles.length > 0 && <h4 className='rejectedfiles-heading'>Rejected files</h4>}
                {rejectedFilesData}
             </ul>
-         </div>
-
-
-         <div className='upload-fotos-wrap'>
-            <button className='upload-fotos' onClick={ () => uploadHandler(acceptedFiles) }>Upload photos</button>
          </div>
       </div>
     )
