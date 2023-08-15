@@ -1,8 +1,8 @@
 import './home.css'
 import { useState, useEffect } from "react"
-import Searchbar from "./Searchbar.jsx"
-import Card from '../card/Card'
-import fetchLocations from "../../api/locations/location.js"
+import Searchbar from "../../unrouted/searchbar/Searchbar.jsx"
+import Card from '../../unrouted/card/Card'
+import fetchLocations from "../../../api/locations/location.js"
 
 
 function Home() {

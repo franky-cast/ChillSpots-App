@@ -3,8 +3,8 @@ import { FcGoogle } from "react-icons/fc"
 import { BsFacebook, BsApple } from "react-icons/bs"
 
 // API functions -- being used for testing currently
-import signIn from "../../api/users/signIn"
-import signOut from "../../api/users/signOut"
+import signIn from "../../../api/users/signIn"
+import signOut from "../../../api/users/signOut"
 import { useEffect, useState } from "react"
 
 function Login () {
@@ -64,7 +64,7 @@ function Login () {
 
 
     return (
-        <div className="login-page">
+        <div className="page__login">
 
             <div className="login-component">
 

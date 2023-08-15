@@ -1,0 +1,39 @@
+.page__add-location {
+    background-image: url("/assets/locations/lajollacove.webp");
+    background-size: cover;
+    background-position: center;
+    padding: 1.5rem 0 1rem 0;
+}
+
+.add-location {
+    width: 92%;
+    margin: 0 auto;
+    padding: 0.75rem 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    
+    background-color: rgba(187, 219, 247, 0.9);
+    color: #fff;
+    border-radius: 18px;
+
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.imgs-upload {
+    margin: 3rem 0;
+}
+
+.input__description {
+    height: 100px;
+    width: 80%;
+}
+
+@media (min-width:900px) {
+    .add-location {
+        width: 70%;
+    }
+}

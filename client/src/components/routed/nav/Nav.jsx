@@ -41,31 +41,40 @@ function Nav() {
                     <ul className='nav-menu-items' onClick={showSidebar}>
                         <li className="nav-item">
                             <Link to='/'>
-                                <FaIcons.FaSearch className='nav-icon' />
+                                <FaIcons.FaGlobeAmericas className='nav-icon' />
                                 <span>Home</span>
                             </Link>
                         </li>
-                    
+
                         <li className="nav-item">
+                            <Link to='/add-location'>
+                                <FaIcons.FaPlusCircle className='nav-icon' />
+                                <span>Add location</span>
+                            </Link>
+                        </li>
+                    
+                        {/* <li className="nav-item">
                             <Link to='/discover'>
                                 <FaIcons.FaGlobeAmericas className='nav-icon' />
                                 <span>Discover</span>
                             </Link>
-                        </li>
+                        </li> */}
 
-                        <li className="nav-item">
-                            <Link to='/saved'>
-                                <FaIcons.FaBookmark className='nav-icon' />
-                                <span>Saved</span>
-                            </Link>
-                        </li>
+                        
 
+                        {/* make this a drop down with "saved" as one of the options */}
                         <li className="nav-item">
                             <Link to='/profile'>
                                 <FaIcons6.FaCircleUser className='nav-icon' />
                                 <span>Profile</span>
                             </Link>
                         </li>
+                        {/* <li className="nav-item">
+                            <Link to='/saved'>
+                                <FaIcons.FaBookmark className='nav-icon' />
+                                <span>Saved</span>
+                            </Link>
+                        </li> */}
 
                         <li className='nav-item'>
                             <Link to='/login'>
@@ -91,20 +100,27 @@ function Nav() {
                             <span>Home</span>
                         </Link>
                     </li>
-                    
+
                     <li className="nav-item">
+                        <Link to='/add-location'>
+                            <FaIcons.FaPlusCircle className='nav-icon' />
+                            <span>Add location</span>
+                        </Link>
+                    </li>
+                    
+                    {/* <li className="nav-item">
                         <Link to='/discover'>
                             <FaIcons.FaGlobeAmericas className='nav-icon' />
                             <span>Discover</span>
                         </Link>
-                    </li>
+                    </li> */}
 
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to='/saved'>
                             <FaIcons.FaBookmark className='nav-icon' />
                             <span>Saved</span>
                         </Link>
-                    </li>
+                    </li> */}
 
                     <li className="nav-item">
                         <Link to='/profile'>

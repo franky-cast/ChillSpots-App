@@ -1,0 +1,52 @@
+.mydropzone {    
+    padding: 1.5rem;
+    min-height: 300px;
+    border: 1px dashed gray;
+}
+
+.mydropzone span {
+    text-decoration: underline;
+}
+
+.file-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-preview-wrap {
+    width: 90%;
+    max-height: 100%;
+}
+
+.file-preview-wrap img{
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.remove-img-button {    
+    position: absolute;
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.acceptedfiles-heading {
+    margin-bottom: 0;
+}
+
+
+.rejected-files-list {
+    margin: 3rem 0 0 0;
+    padding: 0;
+}
+
+
+
+
+@media (min-width: 900px) {
+    
+}
