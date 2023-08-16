@@ -2,6 +2,7 @@
     padding: 1.5rem;
     min-height: 300px;
     border: 1px dashed gray;
+    border-radius: 15px;
 }
 
 .mydropzone span {
@@ -42,11 +43,4 @@
 .rejected-files-list {
     margin: 3rem 0 0 0;
     padding: 0;
-}
-
-
-
-
-@media (min-width: 900px) {
-    
 }
