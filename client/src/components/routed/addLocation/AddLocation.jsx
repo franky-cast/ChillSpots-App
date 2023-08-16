@@ -1,6 +1,11 @@
 import './addlocation.css'
 import { useState } from 'react'
 import MyDropzone from '../../unrouted/mydropzone/MyDropzone.jsx'
+
+// using javascript
+import JavaScriptMapsAPI from '../../unrouted/mapsJs/JavaScriptMapsAPI'
+
+// using library
 import MapsJs from '../../unrouted/mapsJs/MapsJs'
 
 import addLocation from '../../../api/locations/addLocation'
@@ -53,7 +58,8 @@ export default function AddLocation () {
                     {/* chillspot.locationData */}
                     <div className='add-location__input input__box'>
                         <h4 className=''>Drop a marker</h4>
-                        <MapsJs />
+                        {/* <MapsJs /> */}
+                        {/* <JavaScriptMapsAPI /> */}
                     </div>
 
 
