@@ -1,4 +1,4 @@
-export default function Map (props) {
+export default function mapIframe (props) {
     const { plus_code } = props
 
     // encoding the plus code

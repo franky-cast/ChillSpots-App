@@ -30,7 +30,6 @@ export default function MyDropzone( { parentCallback } ) {
          setAcceptedFiles(prevFiles => [...prevFiles, accFile])
 
          // use callback to updated state (img url) to parent component
-         console.log(prevFiles => [...prevFiles, accFile])
          parentCallback(prevFiles => [...prevFiles, accFile])
       }
 
