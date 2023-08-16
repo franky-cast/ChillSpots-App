@@ -99,7 +99,7 @@ export default function MyDropzone( { parentCallback } ) {
    ))
 
    return (
-      <div {...getRootProps()} className='container mydropzone'>
+      <div {...getRootProps()} className='mydropzone'>
 
          {/* dropzone UI */}
          <input {...getInputProps()} />

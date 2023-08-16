@@ -9,11 +9,6 @@
     width: 92%;
     margin: 0 auto;
     padding: 0.75rem 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    
     
     background-color: rgba(187, 219, 247, 0.9);
     color: #fff;
@@ -23,17 +18,76 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.imgs-upload {
-    margin: 3rem 0;
+.add-location form {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 92%;
+    margin: 0 auto;
 }
 
-.input__description {
-    height: 100px;
-    width: 80%;
+.add-location__input {
+    border: none;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    width: 100%;
+}
+
+.input__box {
+    padding: 1.5rem;
+}
+
+.input__box h4 {
+    margin-top: 0;
+}
+
+.input-text__name {
+    width: 90%;
+    box-shadow: rgba(246, 227, 212, 0.5) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.input-text__description {
+    height: 150px;
+    width: 98%;
+    box-shadow: rgba(246, 227, 212, 0.5) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.chillspot__radioBtns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.radio-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.radio-button input {
+    margin: 0;
 }
 
 @media (min-width:900px) {
     .add-location {
         width: 70%;
+    }
+    .add-location form {
+        margin-top: 5rem;
+    }
+    .input__box {
+        width: 80%;
+    }
+    .input-text__name {
+        width: 55%;        
+    }
+    .input-text__description {
+        width: 80%;
+    }
+    .radio-button {
+        gap: 0.5rem;
     }
 }
