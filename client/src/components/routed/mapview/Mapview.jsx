@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import fetchLocaiton from '../../../api/locations/getCoordinates'
+import fetchLocation from '../../../api/locations/getCoordinates'
 import './mapview.css'
 import Map from '../../unrouted/map/Map'
 
