@@ -8,20 +8,27 @@ import MapsJs from '../../unrouted/MapsJs'
 import addLocation from '../../../api/locations/addLocation'
 
 export default function AddLocation () {
+
+    // STATE MANAGEMENT
     // state for images that have been uploaded from react dropzone
     const [ locationImgs, setLocationImgs] = useState([])
     const [ marker, setMarker ] = useState({})
 
+
+    // CALLBACKS
     // updates state of location images everytime user adds or removes image
     function imgsCallback (acceptedFiles) {
         setLocationImgs(acceptedFiles)
     }
-
     function coordCallback (newMarker) {
         setMarker(newMarker)
     }
 
 
+    // Boolean for conditional rendering
+    const [enterAddress, setEnterAddress] = useState(true)
+
+    // API COMMS
     // sends location data to /locations/add route
     async function submitHandler (locationData) {
         try {
@@ -57,8 +64,19 @@ export default function AddLocation () {
 
                     {/* chillspot.locationData */}
                     <div className='add-location__input input__box'>
-                        <h4 className=''>Drop a marker</h4>
-                        <MapsJs callback={coordCallback} />
+                        <button type='button' onClick={() => setEnterAddress(prevState => !prevState)}>
+                            {enterAddress && <p>Specify with marker</p>}
+                            {!enterAddress && <p>Specify with address</p>}
+                        </button>
+
+                        {!enterAddress && <h4 className=''>Drop a marker</h4>}
+                        {!enterAddress && <MapsJs callback={coordCallback} />}
+
+                        {enterAddress && <h4 className=''>Enter Address</h4>}
+                        {
+                            enterAddress &&
+                            <input type="text" placeholder='Enter Address' name='chillspot-address' className='add-location__input'/>
+                        }
                     </div>
 
 
