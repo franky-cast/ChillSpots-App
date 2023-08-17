@@ -3,7 +3,7 @@ import './mydropzone.css'
 import {useCallback, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 
-export default function MyDropzone( { parentCallback } ) {
+export default function MyDropzone( { callback } ) {
    const [ acceptedFiles, setAcceptedFiles ] = useState([])
    const [ rejectedFiles, setRejectedFiles ] = useState([])
 
@@ -30,8 +30,7 @@ export default function MyDropzone( { parentCallback } ) {
          setAcceptedFiles(prevFiles => [...prevFiles, accFile])
 
          // use callback to updated state (img url) to parent component
-         console.log(prevFiles => [...prevFiles, accFile])
-         parentCallback(prevFiles => [...prevFiles, accFile])
+         callback(prevFiles => [...prevFiles, accFile])
       }
 
 
@@ -59,7 +58,7 @@ export default function MyDropzone( { parentCallback } ) {
       setAcceptedFiles(files => files.filter(item => item.name != name))
 
       // use callback to updated state (img url) to parent component
-      parentCallback(files => files.filter(item => item.name != name))
+      callback(files => files.filter(item => item.name != name))
    }
 
 
