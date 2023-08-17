@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import fetchLocation from '../../../api/locations/getCoordinates'
 import './mapview.css'
-import MapIframe from '../../unrouted/mapIframe/mapIframe.jsx'
+import MapIframe from '../../unrouted/mapIframe.jsx'
 
 export default function Mapview () {
     const [ map, setMap] = useState()

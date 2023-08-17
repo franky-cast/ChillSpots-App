@@ -2,22 +2,24 @@ import './addlocation.css'
 import { useState } from 'react'
 import MyDropzone from '../../unrouted/mydropzone/MyDropzone.jsx'
 
-// using javascript
-import JavaScriptMapsAPI from '../../unrouted/mapsJs/JavaScriptMapsAPI'
-
 // using library
-import MapsJs from '../../unrouted/mapsJs/MapsJs'
+import MapsJs from '../../unrouted/MapsJs'
 
 import addLocation from '../../../api/locations/addLocation'
 
 export default function AddLocation () {
     // state for images that have been uploaded from react dropzone
     const [ locationImgs, setLocationImgs] = useState([])
+    const [ marker, setMarker ] = useState({})
 
     // updates state of location images everytime user adds or removes image
-    function parentCallback (acceptedFiles) {
+    function imgsCallback (acceptedFiles) {
         setLocationImgs(acceptedFiles)
-    }    
+    }
+
+    function coordCallback (newMarker) {
+        setMarker(newMarker)
+    }
 
 
     // sends location data to /locations/add route
@@ -29,8 +31,6 @@ export default function AddLocation () {
             console.log(e)
         }
     }
-
-    const locationImgsData = locationImgs.map(object => object.path)
 
 
     return (
@@ -51,15 +51,14 @@ export default function AddLocation () {
                     {/* chillspot.pictures */}
                     <div className='add-location__input input__box'>
                         <h4 className=''>Upload images</h4>
-                        <MyDropzone key={1} parentCallback={parentCallback} />
+                        <MyDropzone key={1} callback={imgsCallback} />
                     </div>
 
 
                     {/* chillspot.locationData */}
                     <div className='add-location__input input__box'>
                         <h4 className=''>Drop a marker</h4>
-                        {/* <MapsJs /> */}
-                        {/* <JavaScriptMapsAPI /> */}
+                        <MapsJs callback={coordCallback} />
                     </div>
 
 
