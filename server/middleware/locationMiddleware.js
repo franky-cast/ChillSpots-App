@@ -1,7 +1,7 @@
 
 // finds adddress based on lat and long
 async function getAddress (req, res, next) {
-    const { lat, lng } = req.body
+    const { lat, lng } = req.body.coords
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.GOOGLE_API_KEY}`
 
     try {
