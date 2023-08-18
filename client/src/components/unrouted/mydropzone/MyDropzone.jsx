@@ -3,6 +3,8 @@ import './mydropzone.css'
 import {useCallback, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 
+const reader = new FileReader()
+
 export default function MyDropzone( { callback } ) {
    const [ acceptedFiles, setAcceptedFiles ] = useState([])
    const [ rejectedFiles, setRejectedFiles ] = useState([])
@@ -13,18 +15,30 @@ export default function MyDropzone( { callback } ) {
       // accepted files
       if (acceptedFile?.length) {
 
+         let file = acceptedFile[0]
+         // gets the binary data that represets the img
+         reader.onload = () => {
+            const buffer = reader.result
+
+            // ATTACH BUFFER TO FILE
+
+         }
+         reader.readAsArrayBuffer(file)
+
          // from dropzone
-         const { path, name, lastModified, size, type } = acceptedFile[0]
+         const { path, name, buffer, lastModified, size, type } = file
+         console.log(file)
 
          // adding a preview AND GOOGLE CLOUD IMG URL to the acceptedFile
          const accFile = {
          path: path,
          name: name,
+         buffer: buffer,
          size: size,
          type: type,
          lastModified: lastModified,
          preview: URL.createObjectURL(acceptedFile[0]),
-         }
+         }         
 
          //updating state
          setAcceptedFiles(prevFiles => [...prevFiles, accFile])

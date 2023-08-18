@@ -9,19 +9,19 @@ import Location from "../models/location.js";
 
 // import middlewares
 import locationMiddleware from "../middleware/locationMiddleware.js"
-const { getAddress, getLatLng } = locationMiddleware
+const { uploadImages, getAddress, getLatLng } = locationMiddleware
 
 
 // API ROUTES
 
-router.route('/add').post(getAddress, (req, res) => {
+router.route('/add').post(uploadImages, getAddress, (req, res) => {
     locationController.addLocation(req)
         .then(() => res.json('Location added!'))
         .catch(err => res.json({ error: `Internal server error --> '/locations/add' : ${err}` }))
 })
 
 
-router.route('/addByAddress').post(getLatLng, (req, res) => {
+router.route('/addByAddress').post(uploadImages, getLatLng, (req, res) => {
     locationController.addLocation(req)
         .then(() => res.json('Location added!'))
         .catch(err => res.json({ error: `Internal server error --> '/locations/addByAddress' : ${err}` }))

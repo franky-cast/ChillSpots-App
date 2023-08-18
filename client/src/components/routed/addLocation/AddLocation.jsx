@@ -26,7 +26,7 @@ export default function AddLocation () {
     const [ locationData, setLocationData ] = useState({
         name: null,
         description: null,
-        imgs: null,
+        files: null,
         coords: null,
         address: null,
         rating: null
@@ -83,13 +83,13 @@ export default function AddLocation () {
         if (enterAddress) {
             setLocationData( prevState => (
                 {   ...prevState,
-                    imgs: locationImgs,
+                    files: locationImgs,
                 }
             ))
         } else {
             setLocationData( prevState => (
                 {   ...prevState,
-                    imgs: locationImgs,
+                    files: locationImgs,
                     coords: marker
                 }
             ))
