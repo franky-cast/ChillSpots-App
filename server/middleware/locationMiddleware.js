@@ -1,3 +1,63 @@
+// imports for img upload to google cloud --> used by uploadImages(req, res, next)
+
+import path from 'path'
+import { fileURLToPath } from "url"
+
+import { Storage } from "@google-cloud/storage" 
+
+const serviceKeyPath = fileURLToPath(import.meta.url)
+const serviceKey = path.join(path.dirname(serviceKeyPath), '..', 'googleCloudStorage/mykey.json')
+const storage = new Storage({
+	keyFilename: serviceKey,
+  	projectId: "chillspots"
+})
+
+const bucket = storage.bucket("chillspots-app")
+
+
+// uploads images to google cloud storage
+async function uploadImages (req, res, next) {
+    console.log("made it to uploadImages() in location middleware")
+
+    try {
+        const files = req.body.files
+        let imgs = []
+        console.log("File found, trying to upload...")
+
+        for (let file of files) {
+            const {name, buffer} = file
+            console.log(buffer)
+
+
+            // uses req.body.imgs[i].name to create reference to file stored in bucket
+            const blob = bucket.file(name.replace(/ /g, "_"))
+
+            // creates a writeable stream that will be used to upload file data to the specified blob(file) in bucket
+            const blobStream = blob.createWriteStream()
+
+            // event handler that is triggered when file finishes uploading
+            // appends public URL to imgs arr
+            blobStream.on("finish", () => {
+                const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+
+                imgs.push(publicUrl)
+                console.log(`${name} uploaded successfully`)
+            }).end(buffer)
+
+        }
+
+        console.log(imgs)
+        return res.json(`uploaded successfully`)
+
+        // attaching the array of img urls to the req body
+        // req.body.imgs = imgs
+        // next()
+
+    } catch (err) {
+        return res.status(500).json({ error: `Unable to upload image... something went wrong \n Internal server error --> uploadImages(req, res, next) locationMiddleware.js: ${err}` })
+    }
+}
+
 
 // finds adddress based on lat and long
 async function getAddress (req, res, next) {
@@ -104,6 +164,7 @@ async function getLatLng (req, res, next) {
 }
 
 export default {
+    uploadImages,
     getAddress,
     getLatLng
 }
