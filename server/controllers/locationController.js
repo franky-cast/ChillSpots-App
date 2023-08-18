@@ -2,22 +2,31 @@ import Location from "../models/location.js";
 
 // handler functions
 const addLocation = (req) => {
-    const { name, pictures, address, lat, lng, approved, stats, place_id, plus_code, timestamp} = req.body
+    try {
+        const { name, imgs, address, coords, description, rating, approved, place_id, plus_code, timestamp} = req.body
+        const { lat, lng } = coords
 
-    const newLocation = new Location ({
-        name,
-        pictures,
-        address,
-        lat,
-        lng,
-        stats,
-        approved,
-        place_id,
-        plus_code,
-        timestamp
-    })
+        const newLocation = new Location ({
+            name,
+            imgs,
+            locationData: {
+                address,
+                lat,
+                lng
+            },
+            description,
+            rating,
+            approved,
+            place_id,
+            plus_code,
+            timestamp
+        })
     
-    return newLocation.save()
+        return newLocation.save()
+    } catch (e) {
+        return ({error: `error saving location to MongoDB: ${e}`})
+    }
+    
 }
 
 const updateLocation = (req) => {
