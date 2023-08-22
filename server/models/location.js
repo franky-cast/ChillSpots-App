@@ -3,7 +3,6 @@ import mongoose from "mongoose"
 const locationSchema = new mongoose.Schema({
     // user input
     name: { type: String, required: true },
-    files: [ { type: String, required: true } ],
     locationData: {
         address: { type: String, required: true},
         lat: { type: Number, required: true },
