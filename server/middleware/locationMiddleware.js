@@ -17,16 +17,18 @@ const bucket = storage.bucket("chillspots-app")
 
 // uploads images to google cloud storage
 async function uploadImages (req, res, next) {
-    console.log("made it to uploadImages() in location middleware")
+    console.log("\n made it to uploadImages() in location middleware")
 
     try {
         const files = req.body.files
         let imgs = []
-        console.log("File found, trying to upload...")
+        console.log("\n File(s) found, trying to upload...")
 
         for (let file of files) {
             const {name, buffer} = file
-            console.log(buffer)
+            console.log('\n')
+            console.log(`buffer: ${buffer}`)
+            console.log(`name: ${name}`)
 
 
             // uses req.body.imgs[i].name to create reference to file stored in bucket
@@ -37,22 +39,20 @@ async function uploadImages (req, res, next) {
 
             // event handler that is triggered when file finishes uploading
             // appends public URL to imgs arr
+
             blobStream.on("finish", () => {
                 const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`
-
                 imgs.push(publicUrl)
-                console.log(`${name} uploaded successfully`)
+
+                // Check if all images are uploaded before sending the response
+                if (imgs.length === files.length) {
+                    console.log(`\n ${name} uploaded successfully`)
+                    // attaching the array of img urls to the req body
+                    req.body.imgs = imgs
+                    next()
+                }
             }).end(buffer)
-
         }
-
-        console.log(imgs)
-        return res.json(`uploaded successfully`)
-
-        // attaching the array of img urls to the req body
-        // req.body.imgs = imgs
-        // next()
-
     } catch (err) {
         return res.status(500).json({ error: `Unable to upload image... something went wrong \n Internal server error --> uploadImages(req, res, next) locationMiddleware.js: ${err}` })
     }
