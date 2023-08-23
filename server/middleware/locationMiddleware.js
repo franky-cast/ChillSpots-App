@@ -4,6 +4,7 @@ import path from 'path'
 import { fileURLToPath } from "url"
 
 import { Storage } from "@google-cloud/storage" 
+import { json } from 'express'
 
 const serviceKeyPath = fileURLToPath(import.meta.url)
 const serviceKey = path.join(path.dirname(serviceKeyPath), '..', 'googleCloudStorage/mykey.json')
@@ -26,9 +27,8 @@ async function uploadImages (req, res, next) {
 
         for (let file of files) {
             const {name, buffer} = file
-            console.log('\n')
-            console.log(`buffer: ${buffer}`)
-            console.log(`name: ${name}`)
+            // console.log(`buffer: ${buffer}`)
+            // console.log(`name: ${name}`)
 
 
             // uses req.body.imgs[i].name to create reference to file stored in bucket
@@ -46,7 +46,7 @@ async function uploadImages (req, res, next) {
 
                 // Check if all images are uploaded before sending the response
                 if (imgs.length === files.length) {
-                    console.log(`\n ${name} uploaded successfully`)
+                    console.log(`\n ${name} uploaded successfully \n`)
                     // attaching the array of img urls to the req body
                     req.body.imgs = imgs
                     next()
@@ -126,10 +126,25 @@ async function getLatLng (req, res, next) {
                 req.body.lat = lat
                 req.body.lng = lng
 
+                req.body.coords.lat = lat
+                req.body.coords.lng = lng
+
                 const { formatted_address, place_id, plus_code } = results[0]
                 req.body.address = formatted_address
                 req.body.place_id = place_id
-                req.body.plus_code = plus_code["global_code"]
+
+                if (!plus_code) {
+                    const tempUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.GOOGLE_API_KEY}`
+                    const data = await fetch(tempUrl)
+
+                    const jsonData = await data.json()
+                    const { plus_code } = jsonData
+
+                    req.body.plus_code = plus_code.global_code
+
+                } else {
+                    req.body.plus_code = plus_code["global_code"]
+                }
                 
                 next()
                 break
