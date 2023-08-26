@@ -7,7 +7,9 @@ import menu from "/assets/utilities/hamburger.jpeg"
 import * as FaIcons from 'react-icons/fa';
 import * as FaIcons6 from 'react-icons/fa6';
 import { FiLogIn } from "react-icons/fi";
-
+import { AiFillHome } from "react-icons/ai"
+import { MdOutlineLogout } from 'react-icons/md'
+import signOut from "../../../api/users/signOut"
 
 
 
@@ -41,34 +43,80 @@ function Nav() {
                     <ul className='nav-menu-items' onClick={showSidebar}>
                         <li className="nav-item">
                             <Link to='/'>
-                                <FaIcons.FaGlobeAmericas className='nav-icon' />
+                                <AiFillHome className='nav-icon' />
                                 <span>Home</span>
                             </Link>
                         </li>
 
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link to='/add-location'>
                                 <FaIcons.FaPlusCircle className='nav-icon' />
                                 <span>Add location</span>
                             </Link>
-                        </li>
+                        </li> */}
                     
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                             <Link to='/discover'>
                                 <FaIcons.FaGlobeAmericas className='nav-icon' />
                                 <span>Discover</span>
                             </Link>
-                        </li> */}
+                        </li>
 
                         
 
                         {/* make this a drop down with "saved" as one of the options */}
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link to='/profile'>
                                 <FaIcons6.FaCircleUser className='nav-icon' />
                                 <span>Profile</span>
                             </Link>
-                        </li>
+                        </li> */}
+                        {(() => {
+                            if (localStorage.userIsLoggedIn === "true") {
+                                return (
+                                    <>
+                                        <li className="nav-item">
+                                            <Link to='/add-location'>
+                                                <FaIcons.FaPlusCircle className='nav-icon' />
+                                                <span>Add location</span>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <Link to='/saved'>
+                                                <FaIcons.FaBookmark className='nav-icon' />
+                                                <span>Saved</span>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <Link to='/profile'>
+                                                <FaIcons6.FaCircleUser className='nav-icon' />
+                                                <span>Profile</span>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <a href="" onClick={signOut}>
+                                                <MdOutlineLogout className='nav-icon' />
+                                                <span>Logout</span>
+                                            </a>
+                                        </li>
+                                    </>
+                                )
+                            } else {
+                                return (
+                                    <>
+                                        <li className='nav-item'>
+                                            <Link to='/login'>
+                                                <FiLogIn className="nav-icon" />
+                                                <span>Login</span>
+                                            </Link>
+                                        </li>
+                                    </>
+                                )
+                            }
+                        })()}
                         {/* <li className="nav-item">
                             <Link to='/saved'>
                                 <FaIcons.FaBookmark className='nav-icon' />
@@ -76,12 +124,12 @@ function Nav() {
                             </Link>
                         </li> */}
 
-                        <li className='nav-item'>
+                        {/* <li className='nav-item'>
                             <Link to='/login'>
                                 <FiLogIn className="nav-icon" />
                                 <span>Login</span>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>
