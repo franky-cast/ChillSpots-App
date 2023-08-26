@@ -22,7 +22,7 @@ router.route('/signin').post(validateSignIn, (req, res) => {
             maxAge: 24 * 60 * 60 * 1000
         })
         res.json({
-            message: 'Succesful sign in',
+            message: 'Successful sign in',
             name: session.name
         }) 
     } catch (err) {

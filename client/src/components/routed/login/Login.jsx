@@ -4,7 +4,6 @@ import { BsFacebook, BsApple } from "react-icons/bs"
 
 // API functions -- being used for testing currently
 import signIn from "../../../api/users/signIn"
-import signOut from "../../../api/users/signOut"
 import { useEffect, useState } from "react"
 
 function Login () {
@@ -32,10 +31,12 @@ function Login () {
                     alert("Incorrect password or username")
                 } else {
                     console.log(res.data)
-                    alert(`${res.data.name} successfully signed in!`)
+                    // alert(`${res.data.name} successfully signed in!`)
                     emailInputEl.placeholder = "Email"
                 }
                 passwordInputEl.placeholder = "Password"
+                localStorage.userIsLoggedIn = "true";
+                window.location = "/";
             } catch (err) {
                 console.error(`Error fetching user data: ${err}`)
             }
