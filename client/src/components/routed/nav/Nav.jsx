@@ -6,6 +6,7 @@ import logo from "/assets/logos/footerlogo.png"
 import menu from "/assets/utilities/hamburger.jpeg"
 import * as FaIcons from 'react-icons/fa';
 import * as FaIcons6 from 'react-icons/fa6';
+import { GiTreeSwing } from "react-icons/gi";
 import { FiLogIn } from "react-icons/fi";
 import { AiFillHome } from "react-icons/ai"
 import { MdOutlineLogout } from 'react-icons/md'
@@ -32,11 +33,12 @@ function Nav() {
                         className='hamburger-menu-img' />
                 </Link>
                 <a href="/" className="img-wrap">
-                    <img
+                    <h1 className="title"><span className="logo"><GiTreeSwing /></span>ShareWhere</h1>
+                    {/* <img
                         src={logo}
                         alt="chill spots"
                         className="img"
-                    />
+                    /> */}
                 </a>
 
                 <nav className='pc-nav'>
